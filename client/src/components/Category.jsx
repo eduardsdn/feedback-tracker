@@ -1,5 +1,5 @@
 import React from "react";
-import categoryStyle from "../styles/category.module.scss";
+import categoryStyle from "../styles/suggestions/category.module.scss";
 
 const Category = function (props) {
   console.log(props);

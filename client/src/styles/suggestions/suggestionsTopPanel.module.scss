@@ -1,0 +1,33 @@
+@import "../variables";
+
+.suggestionsTopPanel {
+  height: 77px;
+  gap: 260px;
+  padding: 14px 16px 14px 24px;
+  background-color: $black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $white;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    .alertCounter {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .filter {
+      .text {
+        font-weight: 400;
+        font-size: 14px;
+      }
+    }
+  }
+}

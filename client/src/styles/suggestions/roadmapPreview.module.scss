@@ -1,4 +1,4 @@
-@import "variables";
+@import "../variables";
 
 .roadmapPreview {
   padding: 19px 24px 24px 24px;
@@ -30,12 +30,23 @@
 .statusPreviews {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 8px;
   .statusPreview {
     display: flex;
     justify-content: space-between;
     font-size: 16px;
     color: $gray;
+    .left {
+      display: flex;
+      gap: 16px;
+    }
+    .colorIndicator {
+      align-self: center;
+      width: 8px;
+      height: 8px;
+      border-radius: 100%;
+    }
     .name {
       font-weight: 400;
     }
@@ -43,4 +54,15 @@
       font-weight: 700;
     }
   }
+}
+
+#planned {
+  background-color: $peach;
+}
+
+#inProgress {
+  background-color: $purple;
+}
+#live {
+  background-color: $blueLight;
 }

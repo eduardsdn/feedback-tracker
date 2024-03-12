@@ -1,5 +1,5 @@
 import React from "react";
-import titleStyle from "../styles/title.module.scss";
+import titleStyle from "../styles/suggestions/title.module.scss";
 
 const Title = function () {
   return (

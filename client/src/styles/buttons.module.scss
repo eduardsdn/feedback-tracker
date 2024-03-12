@@ -1,0 +1,36 @@
+@import "variables";
+
+.button {
+  width: 158px;
+  padding: 12px 0px 12px 0px;
+  border-radius: 10px;
+  border-width: 0px;
+  border-style: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  color: $white;
+}
+
+#purple {
+  background-color: $purple;
+  &:hover {
+    background-color: $purpleLight;
+  }
+}
+
+#blue {
+  background-color: $blue;
+  &:hover {
+    background-color: $blueLight;
+  }
+}
+
+#black {
+  background-color: $black;
+  &:hover {
+    background-color: $gray;
+  }
+}
+
+#red {
+}
