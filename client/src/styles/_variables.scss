@@ -1,0 +1,36 @@
+// fonts
+@font-face {
+  font-family: "Jost";
+  src: url("../assets/fonts/Jost-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("../assets/fonts/Jost-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("../assets/fonts/Jost-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+$font: Jost, Arial, Helvetica;
+
+// colours
+$white: #ffffff;
+$whiteDirty: #f7f8fd;
+
+$gray: #647196;
+$grayLight: #f2f4ff;
+
+$blue: #4661e6;
+$blueLight: #62bcfa;
+
+$black: #4661e6;
+$blackLight: #3a4374;
+
+$purple: #ad1fea;
+$peach: #f49f85;
