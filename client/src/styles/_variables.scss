@@ -34,3 +34,15 @@ $blackLight: #3a4374;
 
 $purple: #ad1fea;
 $peach: #f49f85;
+
+// hovers colors
+
+$blueHover: #cfd7ff;
+
+$gradient: linear-gradient(
+  90deg,
+  rgba(232, 77, 112, 1) 0%,
+  rgba(163, 55, 246, 1) 40%,
+  rgba(140, 76, 244, 1) 57%,
+  rgba(40, 167, 237, 1) 100%
+);

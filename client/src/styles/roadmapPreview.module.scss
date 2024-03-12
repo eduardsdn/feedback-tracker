@@ -1,0 +1,46 @@
+@import "variables";
+
+.roadmapPreview {
+  padding: 19px 24px 24px 24px;
+  background-color: $white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .heading {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .viewLink {
+    font-weight: 600;
+    font-size: 13px;
+    color: $blue;
+    &:hover {
+      color: $blueHover;
+    }
+  }
+}
+
+.statusPreviews {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  .statusPreview {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: $gray;
+    .name {
+      font-weight: 400;
+    }
+    .amount {
+      font-weight: 700;
+    }
+  }
+}

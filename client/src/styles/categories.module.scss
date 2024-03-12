@@ -1,0 +1,11 @@
+@import "variables";
+
+.categoriesContainer {
+  padding: 24px 50px 24px 24px;
+  background-color: $white;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  row-gap: 14px;
+}

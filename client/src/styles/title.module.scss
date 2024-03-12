@@ -1,0 +1,17 @@
+@import "variables";
+
+.titleContainer {
+  color: $white;
+  padding: 62px 78px 24px 24px;
+  background: $gradient;
+  border-radius: 10px;
+  .heading {
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .underHeading {
+    font-weight: 400;
+    font-size: 15px;
+  }
+}

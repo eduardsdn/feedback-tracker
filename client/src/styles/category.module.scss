@@ -1,0 +1,15 @@
+@import "variables";
+
+.category {
+  max-width: fit-content;
+  background-color: $grayLight;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  color: $blue;
+  padding: 6px 14px 6px 14px;
+  cursor: pointer;
+  &:hover {
+    background-color: $blueHover;
+  }
+}
