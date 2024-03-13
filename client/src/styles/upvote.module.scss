@@ -1,0 +1,35 @@
+@import "variables";
+
+.upvote {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  width: 40px;
+  padding: 14px 11px 8px 11px;
+  background-color: $blueExtraLight;
+  border-radius: 10px;
+  color: $blackLight;
+
+  .numOfUpvotes {
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  &:hover {
+    background-color: $blueHover;
+  }
+}
+
+.arrowUp {
+  display: inline-block;
+  border: solid $blue;
+  border-width: 2px 2px 0px 0px;
+  padding: 2px;
+  transform: rotate(-45deg);
+}
+
+.arrowUpHolder {
+  width: 5px;
+  height: 10px;
+}

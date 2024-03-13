@@ -4,6 +4,7 @@ import React from "react";
 import suggestionsStyle from "../styles/suggestions/suggestions.module.scss";
 import SuggestionsLeftPanel from "../components/SuggestionsLeftPanel";
 import SuggestionsTopPanel from "../components/SuggestionsTopPanel";
+import SuggestionCards from "../components/SuggestionCards";
 
 const Suggestions = function () {
   return (
@@ -11,6 +12,7 @@ const Suggestions = function () {
       <SuggestionsLeftPanel />
       <main>
         <SuggestionsTopPanel />
+        <SuggestionCards />
       </main>
     </div>
   );
