@@ -2,6 +2,7 @@ import React from "react";
 import suggestionsTopPanelStyle from "../styles/suggestions/suggestionsTopPanel.module.scss";
 import buttonsStyle from "../styles/buttons.module.scss";
 import lightBulbImg from "../assets/suggestions/desktop/bulb.svg";
+import plusIcon from "../assets/shared/icon-plus.svg";
 
 const suggestionsTopPanel = function () {
   let suggestions = 6; // temororary
@@ -21,11 +22,15 @@ const suggestionsTopPanel = function () {
             <span className={suggestionsTopPanelStyle.chosenFilter}>
               Most Upvotes
             </span>
+            <div className={suggestionsTopPanelStyle.filterArrowIcon}></div>
           </p>
         </div>
       </div>
 
-      <button className={buttonsStyle.button} id={buttonsStyle.purple}>
+      <button
+        className={`${buttonsStyle.btn} ${buttonsStyle.purple} ${buttonsStyle.addFeedbackBtn}`}
+      >
+        <img src={plusIcon} alt="" />
         Add Feedback
       </button>
     </div>

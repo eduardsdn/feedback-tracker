@@ -2,7 +2,6 @@
 
 .suggestionsTopPanel {
   height: 77px;
-  gap: 260px;
   padding: 14px 16px 14px 24px;
   background-color: $black;
   border-radius: 10px;
@@ -16,6 +15,7 @@
     align-items: center;
     gap: 38px;
     .alertCounter {
+      //   max-width: 117px;
       display: flex;
       gap: 16px;
       align-items: center;
@@ -27,7 +27,22 @@
       .text {
         font-weight: 400;
         font-size: 14px;
+        .chosenFilter {
+          cursor: pointer;
+        }
       }
     }
   }
+}
+
+.filterArrowIcon {
+  cursor: pointer;
+  margin-left: 9px;
+  margin-bottom: 2px;
+  display: inline-block;
+  border: solid white;
+  border-width: 0px 2px 2px 0px;
+  padding: 2px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }

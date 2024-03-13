@@ -39,6 +39,8 @@ img {
 ///
 
 .app {
+  display: flex;
+  justify-content: center;
   margin: 0px auto;
   padding: 94px 165px 0px 165px;
   font-family: $font;

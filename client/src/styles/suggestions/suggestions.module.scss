@@ -1,10 +1,13 @@
 @import "../variables";
 
 .suggestions {
+  width: 100%;
+  max-width: 1102px;
   display: flex;
+  justify-content: center;
   gap: 24px;
 }
 
 main {
-  width: 190%;
+  width: 100%;
 }

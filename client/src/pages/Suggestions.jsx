@@ -9,9 +9,9 @@ const Suggestions = function () {
   return (
     <div className={suggestionsStyle.suggestions}>
       <SuggestionsLeftPanel />
-      {/* <main> */}
-      <SuggestionsTopPanel />
-      {/* </main> */}
+      <main>
+        <SuggestionsTopPanel />
+      </main>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 @import "variables";
 
-.button {
+.btn {
   width: 158px;
   padding: 12px 0px 12px 0px;
   border-radius: 10px;
@@ -9,28 +9,36 @@
   font-weight: 700;
   font-size: 14px;
   color: $white;
+  cursor: pointer;
 }
 
-#purple {
+.purple {
   background-color: $purple;
   &:hover {
     background-color: $purpleLight;
   }
 }
 
-#blue {
+.blue {
   background-color: $blue;
   &:hover {
     background-color: $blueLight;
   }
 }
 
-#black {
+.black {
   background-color: $black;
   &:hover {
     background-color: $gray;
   }
 }
 
-#red {
+.red {
+}
+
+.addFeedbackBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
