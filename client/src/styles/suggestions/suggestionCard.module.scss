@@ -1,0 +1,40 @@
+@import "../variables";
+
+.suggestionCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 16px;
+  background-color: $white;
+  border-radius: 10px;
+  padding: 28px 32px 28px 32px;
+
+  .left {
+    display: flex;
+    gap: 40px;
+
+    .textContent {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      .title {
+        color: $blackLight;
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      .detail {
+        max-width: 400px;
+        color: $gray;
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .commentsIndicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}

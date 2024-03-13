@@ -1,13 +1,13 @@
 import React from "react";
 import upvoteStyle from "../styles/upvote.module.scss";
 
-const Upvote = function () {
+const Upvote = function ({ upvotes }) {
   return (
     <div className={upvoteStyle.upvote}>
       <div className={upvoteStyle.arrowUp}></div>
 
       {/* props here */}
-      <p className={upvoteStyle.numOfUpvotes}>16</p>
+      <p className={upvoteStyle.numOfUpvotes}>{upvotes}</p>
     </div>
   );
 };
