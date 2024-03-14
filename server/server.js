@@ -1,9 +1,12 @@
 import express from "express";
 import dotenv from "dotenv"
+import cors from "cors"
 import feedbacks from "./data/feedback.json" with {type: "json"}
 
 const app = express();
 dotenv.config()
+
+app.use(cors({ origin: 'http://localhost:3003' }))
 
 app.get("/", (req, res) => {
   res.send("Hi!");
