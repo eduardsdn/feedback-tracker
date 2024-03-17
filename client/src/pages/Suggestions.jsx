@@ -7,6 +7,7 @@ import suggestionsStyle from "../styles/suggestions/suggestions.module.scss";
 import SuggestionsLeftPanel from "../components/SuggestionsLeftPanel";
 import SuggestionsTopPanel from "../components/SuggestionsTopPanel";
 import SuggestionCards from "../components/SuggestionCards";
+import NoSuggestions from "../components/NoSuggestions";
 
 const Suggestions = function () {
   const feedbacks = useSelector((state) => state.feedback.feedback);
@@ -25,7 +26,9 @@ const Suggestions = function () {
         <SuggestionsTopPanel numOfSuggestions={numOfSuggestions} />
         {numOfSuggestions > 0 ? (
           <SuggestionCards feedbacks={feedbacks} />
-        ) : null}
+        ) : (
+          <NoSuggestions />
+        )}
       </main>
     </div>
   );

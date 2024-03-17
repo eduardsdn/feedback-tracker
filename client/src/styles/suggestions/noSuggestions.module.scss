@@ -1,0 +1,38 @@
+@import "../variables";
+
+.noSuggestionsSection {
+  margin-top: 24px;
+  border-radius: 10px;
+  padding: 111px 206px 110px 206px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $white;
+  text-align: center;
+
+  .emptyImg {
+    // width: 130px;
+    // height: 136px;
+    // display: block;
+  }
+
+  .heading {
+    margin-top: 52px;
+    color: $blackLight;
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  .text {
+    margin-top: 16px;
+    max-width: 410px;
+    color: $gray;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  button {
+    margin-top: 48px;
+  }
+}
