@@ -7,7 +7,7 @@ import plusIcon from "../assets/shared/icon-plus.svg";
 const NoSuggestions = function () {
   return (
     <section className={noSuggestionsStyle.noSuggestionsSection}>
-      <img src={emptyImg} alt="" />
+      <img src={emptyImg} className={noSuggestionsStyle.emptyImg} alt="" />
       <h2 className={noSuggestionsStyle.heading}>There is no feedback yet.</h2>
       <p className={noSuggestionsStyle.text}>
         Got a suggestion? Found a bug that needs to be squashed? We love hearing

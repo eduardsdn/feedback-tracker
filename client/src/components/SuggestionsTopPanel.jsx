@@ -3,8 +3,19 @@ import suggestionsTopPanelStyle from "../styles/suggestions/suggestionsTopPanel.
 import buttonsStyle from "../styles/buttons.module.scss";
 import lightBulbImg from "../assets/suggestions/desktop/bulb.svg";
 import plusIcon from "../assets/shared/icon-plus.svg";
+import SortDropwdown from "./SortDropdown";
 
-const suggestionsTopPanel = function ({ numOfSuggestions }) {
+const SuggestionsTopPanel = function ({ numOfSuggestions }) {
+  const [menuHidden, setMenuHidden] = React.useState(true);
+
+  const handleClick = function () {
+    if (menuHidden === false) {
+      setMenuHidden(true);
+    } else if (menuHidden === true) {
+      setMenuHidden(false);
+    }
+  };
+
   return (
     <div className={suggestionsTopPanelStyle.suggestionsTopPanel}>
       <div className={suggestionsTopPanelStyle.left}>
@@ -15,7 +26,13 @@ const suggestionsTopPanel = function ({ numOfSuggestions }) {
           </div>
         </div>
 
-        <div className={suggestionsTopPanelStyle.filter}>
+        {!menuHidden ? <SortDropwdown /> : null}
+        <div
+          className={suggestionsTopPanelStyle.filter}
+          // onMouseEnter={() => setMenuHidden(false)}
+          // onMouseLeave={() => setMenuHidden(true)}
+          onClick={() => handleClick()}
+        >
           <p className={suggestionsTopPanelStyle.text}>
             Sort by :{" "}
             <span className={suggestionsTopPanelStyle.chosenFilter}>
@@ -36,4 +53,4 @@ const suggestionsTopPanel = function ({ numOfSuggestions }) {
   );
 };
 
-export default suggestionsTopPanel;
+export default SuggestionsTopPanel;

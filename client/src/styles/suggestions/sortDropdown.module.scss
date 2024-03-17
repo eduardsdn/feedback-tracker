@@ -1,0 +1,23 @@
+@import "../variables";
+
+.menu {
+  position: absolute;
+  top: 88px;
+  left: 220px;
+  background-color: $white;
+  border-radius: 10px;
+  overflow: visible;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  .options {
+    color: $gray;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .option {
+    padding: 12px 24px 12px 24px;
+    cursor: pointer;
+    &:hover {
+      color: $purple;
+    }
+  }
+}

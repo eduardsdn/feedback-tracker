@@ -1,6 +1,7 @@
 @import "../variables";
 
 .suggestionsTopPanel {
+  position: relative;
   height: 77px;
   padding: 14px 16px 14px 24px;
   background-color: $black;
