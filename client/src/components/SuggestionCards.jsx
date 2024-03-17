@@ -1,33 +1,29 @@
 import React from "react";
 import suggestionCardsStyle from "../styles/suggestions/suggestionCards.module.scss";
 import SuggestionCard from "./SuggestionCard";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchFeedback } from "../state/feedbackSlice";
 
 // temorary
 const SuggestionCards = function () {
-  const [suggestionsData, setSuggestionsData] = React.useState([]);
+  const feedbacks = useSelector((state) => state.feedback.feedback);
+  const dispatch = useDispatch();
 
-  const fetchFeedback = async () => {
-    const { data } = await axios.get("/api/feedbacks");
-    setSuggestionsData(data);
-  };
-  // Fetching feedbacks from the local server
   React.useEffect(() => {
-    fetchFeedback();
+    dispatch(fetchFeedback());
   }, []);
-
-  console.log(suggestionsData);
 
   return (
     <section className={suggestionCardsStyle.suggestionCards}>
-      {suggestionsData.slice(0, 6).map((suggestion) => (
+      {feedbacks.map((feedback) => (
         <SuggestionCard
-          id={suggestion.id}
-          title={suggestion.title}
-          description={suggestion.description}
-          category={suggestion.category}
-          upvotes={suggestion.upvotes}
-          comments={suggestion.comments}
+          key={feedback.id}
+          id={feedback.id}
+          title={feedback.title}
+          description={feedback.description}
+          category={feedback.category}
+          upvotes={feedback.upvotes}
+          comments={feedback.comments}
         />
       ))}
     </section>
