@@ -4,15 +4,14 @@ import buttonsStyle from "../styles/buttons.module.scss";
 import lightBulbImg from "../assets/suggestions/desktop/bulb.svg";
 import plusIcon from "../assets/shared/icon-plus.svg";
 
-const suggestionsTopPanel = function () {
-  let suggestions = 6; // temororary
+const suggestionsTopPanel = function ({ numOfSuggestions }) {
   return (
     <div className={suggestionsTopPanelStyle.suggestionsTopPanel}>
       <div className={suggestionsTopPanelStyle.left}>
         <div className={suggestionsTopPanelStyle.alertCounter}>
           <img src={lightBulbImg} alt="" />
           <div className={suggestionsTopPanelStyle.amount}>
-            {`${suggestions} Suggestions`}
+            {`${numOfSuggestions} Suggestions`}
           </div>
         </div>
 

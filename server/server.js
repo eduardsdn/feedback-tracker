@@ -15,7 +15,8 @@ app.get("/", (req, res) => {
 
 app.get("/api/feedbacks", async (req, res) => {
   const feedbacks = await getAllFeedbacks();
-  res.send(feedbacks);
+  // res.send(feedbacks);
+  res.send([]);
 });
 
 // route params
