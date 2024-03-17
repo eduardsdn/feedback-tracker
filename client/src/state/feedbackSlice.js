@@ -9,8 +9,8 @@ const initialState = {
 
 export const fetchFeedback = createAsyncThunk(
   "feedback/fetchFeedback",
-  async () => {
-    return await axios.get("/api/feedbacks").then((response) => response.data);
+  async (apiEndpoint) => {
+    return await axios.get(apiEndpoint).then((response) => response.data);
   }
 );
 

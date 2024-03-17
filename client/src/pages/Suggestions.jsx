@@ -11,11 +11,22 @@ import NoSuggestions from "../components/NoSuggestions";
 
 const Suggestions = function () {
   const feedbacks = useSelector((state) => state.feedback.feedback);
+  const categoryFilter = useSelector(
+    (state) => state.categoryFilter.chosenCategory
+  );
+
   const dispatch = useDispatch();
 
+  console.log(categoryFilter);
+
+  //MAKE API ENDPOINTS !
   React.useEffect(() => {
-    dispatch(fetchFeedback());
-  }, []);
+    if (categoryFilter === "All") {
+      dispatch(fetchFeedback("/api/feedbacks"));
+    } else if (categoryFilter === "UI") {
+      dispatch(fetchFeedback("/api/feedbacks/test"));
+    }
+  }, [categoryFilter]);
 
   const numOfSuggestions = feedbacks.length;
 
