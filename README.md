@@ -1,4 +1,4 @@
-<h1>PRODUCT TRACKER</h1>
+<h1>FEEDBACK TRACKER</h1>
 <h2>Web application for tracking feedback messages</h2>
 
 <h2>Functionality</h2>
