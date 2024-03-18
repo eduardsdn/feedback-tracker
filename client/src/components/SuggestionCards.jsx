@@ -15,7 +15,7 @@ const SuggestionCards = function ({ feedbacks }) {
 
   return (
     <section className={suggestionCardsStyle.suggestionCards}>
-      {feedbacks.slice(0, 6).map((feedback) => (
+      {feedbacks.map((feedback) => (
         <SuggestionCard
           key={feedback.id}
           id={feedback.id}

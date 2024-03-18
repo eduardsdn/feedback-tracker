@@ -22,14 +22,37 @@ const getAllFeedbacks = async function () {
   return feedbacksAll;
 };
 
-const getFeedbacksByCategory = async function (category) {
-  const feedbacksFeature = await client
+const getSortedFeedbacksByCategory = async function (category, sortBy) {
+  let find = {};
+  let field = "upvotes";
+  let order = 1;
+
+  if (category !== "all") {
+    find = { category: category };
+  }
+
+  switch (sortBy) {
+    case "most_upvotes":
+      field = "upvotes";
+      order = -1;
+      break;
+    case "least_upvotes":
+      field = "upvotes";
+      order = 1;
+  }
+
+  console.log(field, order);
+
+  const feedbacks = await client
     .db("FeedbackTracker")
     .collection("Feedbacks")
-    .find({ category: category })
+    .find(find)
+    .sort({ upvotes: order })
     .toArray();
 
-  return feedbacksFeature;
+  return feedbacks;
 };
 
-export { getAllFeedbacks, getFeedbacksByCategory };
+const sortFeedbacks = async function (feedbacks, sortBy) {};
+
+export { getAllFeedbacks, getSortedFeedbacksByCategory };
