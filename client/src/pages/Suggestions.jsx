@@ -22,11 +22,14 @@ const Suggestions = function () {
   //MAKE API ENDPOINTS !
   React.useEffect(() => {
     if (categoryFilter === "All") {
-      dispatch(fetchFeedback("/api/feedbacks"));
-    } else if (categoryFilter === "UI") {
-      dispatch(fetchFeedback("/api/feedbacks/test"));
-    }
+      dispatch(fetchFeedback("/api/feedbacks/all"));
+    } else
+      dispatch(fetchFeedback(`/api/feedbacks/${categoryFilter.toLowerCase()}`));
   }, [categoryFilter]);
+
+  // else if (categoryFilter === "Feature") {
+  //   dispatch(fetchFeedback("/api/feedbacks/feature"));
+  // }
 
   const numOfSuggestions = feedbacks.length;
 

@@ -12,14 +12,24 @@ try {
   console.log(e);
 }
 
-const getAllFeedbacks = async function getFeedbacks() {
-  const feedbacks = await client
+const getAllFeedbacks = async function () {
+  const feedbacksAll = await client
     .db("FeedbackTracker")
     .collection("Feedbacks")
     .find({})
     .toArray();
 
-  return feedbacks;
+  return feedbacksAll;
 };
 
-export { getAllFeedbacks };
+const getFeedbacksByCategory = async function (category) {
+  const feedbacksFeature = await client
+    .db("FeedbackTracker")
+    .collection("Feedbacks")
+    .find({ category: category })
+    .toArray();
+
+  return feedbacksFeature;
+};
+
+export { getAllFeedbacks, getFeedbacksByCategory };

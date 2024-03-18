@@ -1,8 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-// import feedbacks from "./data/feedback.json" with {type: "json"}
-import { getAllFeedbacks } from "./db.js";
+import { getAllFeedbacks, getFeedbacksByCategory } from "./db.js";
 
 const app = express();
 dotenv.config();
@@ -13,10 +12,17 @@ app.get("/", (req, res) => {
   res.send("Hi!");
 });
 
-app.get("/api/feedbacks", async (req, res) => {
-  const feedbacks = await getAllFeedbacks();
-  res.send(feedbacks);
-  // res.send([]);
+app.get("/api/feedbacks/all", async (req, res) => {
+  const feedbacksAll = await getAllFeedbacks();
+  res.send(feedbacksAll);
+});
+
+app.get("/api/feedbacks/:category", async (req, res) => {
+  const category = req.params.category;
+  // console.log(category);
+  const feedbacksFeature = await getFeedbacksByCategory(category);
+  // console.log(feedbacksFeature);
+  res.send(feedbacksFeature);
 });
 
 // route params
