@@ -11,9 +11,11 @@ import NoSuggestions from "../components/NoSuggestions";
 
 const Suggestions = function () {
   const feedbacks = useSelector((state) => state.feedback.feedback);
+  console.log(useSelector((state) => state));
   const categoryFilter = useSelector(
     (state) => state.categoryFilter.chosenCategory
   );
+  const sortBy = useSelector((state) => state.sortSuggestions.sortBy);
 
   const dispatch = useDispatch();
 
