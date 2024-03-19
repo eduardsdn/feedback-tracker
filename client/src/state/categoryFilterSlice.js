@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  chosenCategory: "All",
+  chosenCategory: "all",
 };
 
 const categoryFilterSlice = createSlice({

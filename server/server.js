@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { getAllFeedbacks, getSortedFeedbacksByCategory } from "./db.js";
+import { getSortedFeedbacksByCategory } from "./db.js";
 
 const app = express();
 dotenv.config();

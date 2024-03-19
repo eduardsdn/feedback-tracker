@@ -11,7 +11,7 @@ import NoSuggestions from "../components/NoSuggestions";
 
 const Suggestions = function () {
   const feedbacks = useSelector((state) => state.feedback.feedback);
-  console.log(useSelector((state) => state));
+  // console.log(useSelector((state) => state));
   const categoryFilter = useSelector(
     (state) => state.categoryFilter.chosenCategory
   );
@@ -19,7 +19,7 @@ const Suggestions = function () {
 
   const dispatch = useDispatch();
 
-  console.log(categoryFilter);
+  // console.log(categoryFilter);
 
   //MAKE API ENDPOINTS !
   React.useEffect(() => {
@@ -27,9 +27,7 @@ const Suggestions = function () {
     //   // dispatch(fetchFeedback("/api/feedbacks/all"));
     //   dispatch(fetchFeedback(`/api/feedbacks/all/${sortBy}`));
     // } else
-    dispatch(
-      fetchFeedback(`/api/feedbacks/${categoryFilter.toLowerCase()}/${sortBy}`)
-    );
+    dispatch(fetchFeedback(`/api/feedbacks/${categoryFilter}/${sortBy}`));
   }, [categoryFilter, sortBy]);
 
   // else if (categoryFilter === "Feature") {
