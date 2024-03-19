@@ -28,8 +28,9 @@
       .text {
         font-weight: 400;
         font-size: 14px;
-        .chosenFilter {
-          cursor: pointer;
+        cursor: pointer;
+        &:hover {
+          color: #f2f4fe85;
         }
       }
     }
@@ -39,11 +40,22 @@
 .filterArrowIcon {
   cursor: pointer;
   margin-left: 9px;
-  margin-bottom: 2px;
-  display: inline-block;
-  border: solid white;
-  border-width: 0px 2px 2px 0px;
-  padding: 2px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+  filter: brightness(100);
+  // margin-bottom: 2px;
+  // display: inline-block;
+  // border: solid white;
+  // border-width: 0px 2px 2px 0px;
+  // padding: 2px;
+  // transform: rotate(45deg);
+  // -webkit-transform: rotate(45deg);
+  // transition: transform 0.3s ease;
+}
+// .filterArrowIcon {
+//   stroke-width: 10px;
+// }
+
+.rotate {
+  transition: transform 0.3s ease;
+  transform-origin: 1 1;
+  transform: rotate(180deg);
 }

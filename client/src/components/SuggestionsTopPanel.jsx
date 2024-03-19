@@ -4,6 +4,7 @@ import buttonsStyle from "../styles/buttons.module.scss";
 import lightBulbImg from "../assets/suggestions/desktop/bulb.svg";
 import plusIcon from "../assets/shared/icon-plus.svg";
 import SortDropwdown from "./SortDropdown";
+import arrowDownIcon from "../assets/shared/icon-arrow-down.svg";
 
 const SuggestionsTopPanel = function ({ numOfSuggestions }) {
   const [menuHidden, setMenuHidden] = React.useState(true);
@@ -38,7 +39,18 @@ const SuggestionsTopPanel = function ({ numOfSuggestions }) {
             <span className={suggestionsTopPanelStyle.chosenFilter}>
               Most Upvotes
             </span>
-            <div className={suggestionsTopPanelStyle.filterArrowIcon}></div>
+            {/* <div
+              className={`${suggestionsTopPanelStyle.filterArrowIcon} ${
+                !menuHidden ? suggestionsTopPanelStyle.rotate : ""
+              }`}
+            ></div> */}
+            <img
+              src={arrowDownIcon}
+              alt=""
+              className={`${suggestionsTopPanelStyle.filterArrowIcon} ${
+                !menuHidden ? suggestionsTopPanelStyle.rotate : ""
+              }`}
+            />
           </p>
         </div>
       </div>

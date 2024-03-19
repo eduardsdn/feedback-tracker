@@ -43,10 +43,8 @@ const getSortedFeedbacksByCategory = async function (category, sortBy) {
       return sortByUpvotes(1);
     case "most_comments":
       return sortByComments(-1);
-      return sortByUpvotes(1);
     case "least_comments":
       return sortByComments(1);
-      return sortByUpvotes(1);
   }
 
   async function sortByUpvotes(order) {
