@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import suggestionsTopPanelStyle from "../styles/suggestions/suggestionsTopPanel.module.scss";
 import buttonsStyle from "../styles/buttons.module.scss";
 import lightBulbImg from "../assets/suggestions/desktop/bulb.svg";
@@ -55,12 +56,14 @@ const SuggestionsTopPanel = function ({ numOfSuggestions }) {
         </div>
       </div>
 
-      <button
-        className={`${buttonsStyle.btn} ${buttonsStyle.purple} ${buttonsStyle.addFeedbackBtn}`}
-      >
-        <img src={plusIcon} alt="" />
-        Add Feedback
-      </button>
+      <Link to="/addfeedback">
+        <button
+          className={`${buttonsStyle.btn} ${buttonsStyle.purple} ${buttonsStyle.addFeedbackBtn}`}
+        >
+          <img src={plusIcon} alt="" />
+          Add Feedback
+        </button>
+      </Link>
     </div>
   );
 };

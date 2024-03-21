@@ -1,0 +1,88 @@
+@import "../variables";
+
+.addFeedback {
+  padding-top: 92px;
+  .navigation {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .goBackLink {
+      display: flex;
+      align-items: center;
+    }
+
+    .linkText {
+      margin-left: 16px;
+      font-weight: 700;
+      font-size: 14px;
+      color: $gray;
+    }
+
+    .arrowLeftIcon {
+    }
+  }
+
+  .formContainer {
+    position: relative;
+    margin-top: 68px;
+    padding: 52px 42px 40px 42px;
+    border-radius: 10px;
+    background-color: $white;
+
+    .plusIcon {
+      //   display: none;
+      position: absolute;
+      top: -28px;
+      left: 42px;
+    }
+
+    .addFeedbackForm {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      .inputHolder {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        .inputField {
+          margin-top: 12px;
+          padding: 12px 24px 12px 24px;
+          border-radius: 5px;
+          font-weight: 400;
+          font-size: 15px;
+          border: none;
+          background-color: $whiteDirty;
+        }
+
+        // input[type="text"] {
+        //   padding: 12px 24px 12px 24px;
+        // }
+
+        textarea {
+          height: 120px;
+          resize: none;
+          overflow: scroll;
+        }
+
+        label {
+          counter-reset: $black;
+          font-weight: 700;
+          font-size: 14px;
+        }
+
+        .inputDescription {
+          margin-top: 2px;
+          color: $gray;
+          font-weight: 400;
+          font-size: 14px;
+        }
+
+        .textInput {
+        }
+      }
+    }
+  }
+}

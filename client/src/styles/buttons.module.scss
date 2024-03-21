@@ -12,6 +12,10 @@
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
 .purple {
   background-color: $purple;
   &:hover {
