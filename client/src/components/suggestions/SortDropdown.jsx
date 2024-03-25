@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeSortingOption } from "../state/sortSuggestionsSlice";
-import dropdownStyle from "../styles/suggestions/sortDropdown.module.scss";
-import checkIcon from "../assets/shared/icon-check.svg";
+import { changeSortingOption } from "../../state/sortSuggestionsSlice";
+import dropdownStyle from "../../styles/suggestions/sortDropdown.module.scss";
+import checkIcon from "../../assets/shared/icon-check.svg";
 
 const SortDropwdown = function () {
   const sortBy = useSelector((state) => state.sortSuggestions.sortBy);

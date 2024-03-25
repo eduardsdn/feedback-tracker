@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import SelectInputDropdown from "../components/SelectInputDropdown";
+import SelectInputDropdown from "../components/forms/SelectInputDropdown";
 import Button from "../components/buttons/Button";
 import formsStyle from "../styles/forms/forms.module.scss";
 import iconArrowLeft from "../assets/shared/icon-arrow-left.svg";

@@ -4,10 +4,10 @@ import { fetchFeedback } from "../state/feedbackSlice";
 // import Title from "../components/Title";
 // import Categories from "../components/Categories";
 import suggestionsStyle from "../styles/suggestions/suggestions.module.scss";
-import SuggestionsLeftPanel from "../components/SuggestionsLeftPanel";
-import SuggestionsTopPanel from "../components/SuggestionsTopPanel";
-import SuggestionCards from "../components/SuggestionCards";
-import NoSuggestions from "../components/NoSuggestions";
+import SuggestionsLeftPanel from "../components/suggestions/SuggestionsLeftPanel";
+import SuggestionsTopPanel from "../components/suggestions/SuggestionsTopPanel";
+import SuggestionCards from "../components/suggestions/SuggestionCards";
+import NoSuggestions from "../components/suggestions/NoSuggestions";
 
 const Suggestions = function () {
   const feedbacks = useSelector((state) => state.feedback.feedback);

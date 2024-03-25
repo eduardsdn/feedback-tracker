@@ -1,8 +1,8 @@
 import React from "react";
-import Upvote from "./Upvote";
-import Category from "./Category";
-import suggestionCardStyle from "../styles/suggestions/suggestionCard.module.scss";
-import commentIcon from "../assets/shared/icon-comments.svg";
+import Upvote from "../shared/Upvote";
+import Category from "../shared/Category";
+import suggestionCardStyle from "../../styles/suggestions/suggestionCard.module.scss";
+import commentIcon from "../../assets/shared/icon-comments.svg";
 
 const SuggestionCard = function ({
   title,

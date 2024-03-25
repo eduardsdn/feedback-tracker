@@ -1,5 +1,5 @@
 import React from "react";
-import upvoteStyle from "../styles/upvote.module.scss";
+import upvoteStyle from "../../styles/upvote.module.scss";
 
 const Upvote = function ({ upvotes }) {
   return (

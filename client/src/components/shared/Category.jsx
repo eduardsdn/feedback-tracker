@@ -1,5 +1,5 @@
 import React from "react";
-import categoryStyle from "../styles/suggestions/category.module.scss";
+import categoryStyle from "../../styles/suggestions/category.module.scss";
 import { useSelector } from "react-redux";
 
 const Category = function (props) {

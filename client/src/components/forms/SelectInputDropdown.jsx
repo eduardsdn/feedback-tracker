@@ -1,5 +1,5 @@
 import React from "react";
-import selectInputStyle from "../styles/forms/selectInput.module.scss";
+import selectInputStyle from "../../styles/forms/selectInput.module.scss";
 
 const SelectInputDropdown = function ({ categories, selectOption }) {
   return (

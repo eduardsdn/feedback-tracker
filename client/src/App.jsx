@@ -3,7 +3,6 @@ import GlobalCSS from "./styles/app.module.scss";
 
 import Suggestions from "./pages/Suggestions";
 import AddFeedback from "./pages/AddFeedback";
-import Title from "./components/Title";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = function () {

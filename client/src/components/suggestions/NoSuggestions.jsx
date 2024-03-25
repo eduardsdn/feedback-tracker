@@ -1,8 +1,8 @@
 import React from "react";
-import noSuggestionsStyle from "../styles/suggestions/noSuggestions.module.scss";
-import buttonsStyle from "../styles/buttons.module.scss";
-import emptyImg from "../assets/suggestions/illustration-empty.svg";
-import plusIcon from "../assets/shared/icon-plus.svg";
+import noSuggestionsStyle from "../../styles/suggestions/noSuggestions.module.scss";
+import buttonsStyle from "../../styles/buttons.module.scss";
+import emptyImg from "../../assets/suggestions/illustration-empty.svg";
+import plusIcon from "../../assets/shared/icon-plus.svg";
 
 const NoSuggestions = function () {
   return (

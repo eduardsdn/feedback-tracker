@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeChosenCategory } from "../state/categoryFilterSlice";
-import categoriesStyle from "../styles/suggestions/categories.module.scss";
-import Category from "./Category";
+import { changeChosenCategory } from "../../state/categoryFilterSlice";
+import categoriesStyle from "../../styles/suggestions/categories.module.scss";
+import Category from "../shared/Category";
 
 const Categories = function () {
   const categoryNames = ["All", "UI", "UX", "Enhancement", "Bug", "Feature"];

@@ -1,5 +1,5 @@
 import React from "react";
-import roadmapPreviewStyle from "../styles/suggestions/roadmapPreview.module.scss";
+import roadmapPreviewStyle from "../../styles/suggestions/roadmapPreview.module.scss";
 
 const RoadmapPreview = function () {
   // MAP ROADMAP PREVIEWS!!!

@@ -1,5 +1,5 @@
 import React from "react";
-import suggestionsLeftPanelStyle from "../styles/suggestions/suggestionsLeftPanel.module.scss";
+import suggestionsLeftPanelStyle from "../../styles/suggestions/suggestionsLeftPanel.module.scss";
 
 import Categories from "./Categories";
 import Title from "./Title";

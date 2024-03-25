@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "./buttons/Button";
-import suggestionsTopPanelStyle from "../styles/suggestions/suggestionsTopPanel.module.scss";
-import buttonsStyle from "../styles/buttons.module.scss";
-import lightBulbImg from "../assets/suggestions/desktop/bulb.svg";
-import plusIcon from "../assets/shared/icon-plus.svg";
+import Button from "../buttons/Button";
+import suggestionsTopPanelStyle from "../../styles/suggestions/suggestionsTopPanel.module.scss";
+import buttonsStyle from "../../styles/buttons.module.scss";
+import lightBulbImg from "../../assets/suggestions/desktop/bulb.svg";
+import plusIcon from "../../assets/shared/icon-plus.svg";
 import SortDropwdown from "./SortDropdown";
-import arrowDownIcon from "../assets/shared/icon-arrow-down.svg";
+import arrowDownIcon from "../../assets/shared/icon-arrow-down.svg";
 
 const SuggestionsTopPanel = function ({ numOfSuggestions }) {
   const [menuHidden, setMenuHidden] = React.useState(true);
