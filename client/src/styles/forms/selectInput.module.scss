@@ -1,0 +1,25 @@
+@import "../variables";
+
+.selectInputDropdown {
+  background-color: aqua;
+  width: 100%;
+  position: absolute;
+  bottom: -250px;
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.option {
+  color: $gray;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  &:hover {
+    color: $purple;
+  }
+}
+
+.underlined {
+  border-bottom: solid 1px $grayLight;
+}

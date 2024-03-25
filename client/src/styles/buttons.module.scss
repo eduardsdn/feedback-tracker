@@ -1,8 +1,12 @@
 @import "variables";
 
+.buttonsContainer {
+  display: flex;
+}
+
 .btn {
-  width: 158px;
-  padding: 12px 0px 12px 0px;
+  // width: 158px;
+  padding: 12px 24px 12px 24px;
   border-radius: 10px;
   border-width: 0px;
   border-style: inherit;

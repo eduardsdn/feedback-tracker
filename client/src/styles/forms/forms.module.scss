@@ -30,14 +30,14 @@
     border-radius: 10px;
     background-color: $white;
 
-    .plusIcon {
+    .decorIcon {
       //   display: none;
       position: absolute;
       top: -28px;
       left: 42px;
     }
 
-    .addFeedbackForm {
+    .form {
       margin-top: 20px;
       display: flex;
       flex-direction: column;
@@ -56,10 +56,6 @@
           border: none;
           background-color: $whiteDirty;
         }
-
-        // input[type="text"] {
-        //   padding: 12px 24px 12px 24px;
-        // }
 
         textarea {
           height: 120px;
@@ -83,6 +79,19 @@
         .textInput {
         }
       }
+
+      .select {
+        position: relative;
+        cursor: pointer;
+        // display: none;
+      }
+    }
+
+    .buttonsContainer {
+      justify-content: end;
+      gap: 16px;
+      margin-top: 32px;
+      display: flex;
     }
   }
 }
