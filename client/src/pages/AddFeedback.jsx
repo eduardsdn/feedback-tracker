@@ -8,11 +8,15 @@ import iconArrowLeft from "../assets/shared/icon-arrow-left.svg";
 import plusIcon from "../assets/shared/icon-new-feedback.svg";
 
 const AddFeedback = function () {
-  const form = useForm();
+  const { register, control, handleSubmit, formState } = useForm();
+  const { errors, touchedFields } = formState;
   const [selectHidden, setSelectHidden] = React.useState(true);
   const [selectedOption, setSelectedOption] = React.useState("Feature");
-
   const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"];
+
+  function onSubmit(data) {
+    console.log(data);
+  }
 
   function toggleSelectDropdown() {
     setSelectHidden(!selectHidden);
@@ -37,13 +41,27 @@ const AddFeedback = function () {
       <main className={formsStyle.formContainer}>
         <img src={plusIcon} className={formsStyle.decorIcon} alt="" />
         <h1 className={formsStyle.formTitle}>Create New Feedback</h1>
-        <form className={formsStyle.form} action="">
+        <form
+          className={formsStyle.form}
+          action=""
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className={formsStyle.inputHolder}>
             <label htmlFor="title">Feedback Title</label>
             <p className={formsStyle.inputDescription}>
               Add a short, descriptive headline
             </p>
-            <input className={formsStyle.inputField} id="title" type="text" />
+            <input
+              className={`${formsStyle.inputField} ${
+                errors.title ? formsStyle.inputError : ""
+              }`}
+              id="title"
+              type="text"
+              {...register("title", {
+                required: { value: true, message: "Can't be empty" },
+              })}
+            />
+            <p className={formsStyle.errorMessage}>{errors.title?.message}</p>
           </div>
 
           <div className={`${formsStyle.inputHolder} ${formsStyle.select}`}>
@@ -57,6 +75,7 @@ const AddFeedback = function () {
               readOnly
               value={selectedOption}
               onClick={toggleSelectDropdown}
+              {...register("category")}
             />
             {!selectHidden ? (
               <SelectInputDropdown
@@ -72,17 +91,29 @@ const AddFeedback = function () {
               Include any specific comments on what should be improved, added,
               etc.
             </p>
-            <textarea className={formsStyle.inputField} />
+            <textarea
+              className={`${formsStyle.inputField} ${
+                errors.detail ? formsStyle.inputError : ""
+              }`}
+              {...register("detail", {
+                required: { value: true, message: "Can't be empty" },
+              })}
+            />
+            <p className={formsStyle.errorMessage}>{errors.detail?.message}</p>
+          </div>
+
+          <div className={formsStyle.buttonsContainer}>
+            <Link to="/">
+              <Button color={"black"} text={"Cancel"}></Button>
+            </Link>
+
+            <Button
+              color={"purple"}
+              text={"Add Feedback"}
+              type="submit"
+            ></Button>
           </div>
         </form>
-
-        <div className={formsStyle.buttonsContainer}>
-          <Link to="/">
-            <Button color={"black"} text={"Cancel"}></Button>
-          </Link>
-
-          <Button color={"purple"} text={"Add Feedback"}></Button>
-        </div>
       </main>
     </div>
   );

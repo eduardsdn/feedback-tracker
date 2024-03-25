@@ -2,7 +2,7 @@ import React from "react";
 import buttonsStyle from "../../styles/buttons.module.scss";
 import plusIcon from "../../assets/shared/icon-plus.svg";
 
-const Button = function ({ text, color, hasPlusIcon }) {
+const Button = function ({ text, color, hasPlusIcon, type }) {
   let colorClass;
 
   switch (color) {
@@ -23,6 +23,7 @@ const Button = function ({ text, color, hasPlusIcon }) {
   return (
     <button
       className={`${buttonsStyle.btn} ${colorClass} ${buttonsStyle.addFeedbackBtn}`}
+      type={type === "submit" ? "submit" : null}
     >
       {hasPlusIcon ? <img src={plusIcon} alt="" /> : null}
       {text}

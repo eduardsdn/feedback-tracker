@@ -41,7 +41,7 @@
       margin-top: 20px;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 20px;
       .inputHolder {
         display: flex;
         flex-direction: column;
@@ -57,10 +57,23 @@
           background-color: $whiteDirty;
         }
 
+        .inputError {
+          border: solid 1px;
+          border-color: $red;
+          outline-color: $red;
+        }
+
+        .errorMessage {
+          margin-top: 4px;
+          font-weight: 400;
+          font-size: 14px;
+          color: $red;
+        }
+
         textarea {
           height: 120px;
           resize: none;
-          overflow: scroll;
+          // overflow: scroll;
         }
 
         label {
