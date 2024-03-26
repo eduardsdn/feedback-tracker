@@ -5,29 +5,27 @@ dotenv.config();
 const uri = process.env.MONGO_DB_URI;
 
 const client = new MongoClient(uri);
-
+const db = client.db("FeedbackTracker");
 try {
   await client.connect();
 } catch (e) {
   console.log(e);
 }
 
-// const getAllFeedbacks = async function () {
-//   const feedbacksAll = await client
-//     .db("FeedbackTracker")
-//     .collection("Feedbacks")
-//     .find({})
-//     .toArray();
-
-//   return feedbacksAll;
-// };
+const addFeedback = async function (feedback) {
+  console.log(feedback);
+  client
+    .db("FeedbackTracker")
+    .collection("Feedbacks")
+    .insertOne(feedback, { writeConcern: { w: 0 } });
+};
 
 const getSortedFeedbacksByCategory = async function (category, sortBy) {
   let find = {};
   let field = "upvotes";
   let order = 1;
 
-  // console.log(category, sortBy);
+  console.log(category, sortBy);
 
   if (category !== "all") {
     find = { category: category };
@@ -48,7 +46,7 @@ const getSortedFeedbacksByCategory = async function (category, sortBy) {
   }
 
   async function sortByUpvotes(order) {
-    const feedbacks = client
+    const feedbacks = await client
       .db("FeedbackTracker")
       .collection("Feedbacks")
       .find(find)
@@ -85,4 +83,14 @@ const getSortedFeedbacksByCategory = async function (category, sortBy) {
   }
 };
 
-export { getSortedFeedbacksByCategory };
+// const getAllFeedbacks = async function () {
+//   const feedbacksAll = await client
+//     .db("FeedbackTracker")
+//     .collection("Feedbacks")
+//     .find({})
+//     .toArray();
+
+//   return feedbacksAll;
+// };
+
+export { getSortedFeedbacksByCategory, addFeedback };

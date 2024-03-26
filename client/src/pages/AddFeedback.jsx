@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { UseDispatch, useDispatch } from "react-redux";
+import { addFeedback } from "../state/feedbackSlice";
 import { Link } from "react-router-dom";
 import SelectInputDropdown from "../components/forms/SelectInputDropdown";
 import Button from "../components/buttons/Button";
@@ -8,14 +10,28 @@ import iconArrowLeft from "../assets/shared/icon-arrow-left.svg";
 import plusIcon from "../assets/shared/icon-new-feedback.svg";
 
 const AddFeedback = function () {
-  const { register, control, handleSubmit, formState } = useForm();
-  const { errors, touchedFields } = formState;
+  const { register, handleSubmit, formState } = useForm();
+  const { errors } = formState;
   const [selectHidden, setSelectHidden] = React.useState(true);
   const [selectedOption, setSelectedOption] = React.useState("Feature");
   const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"];
 
-  function onSubmit(data) {
-    console.log(data);
+  const dispatch = useDispatch();
+
+  function onSubmit(formData) {
+    const feedback = {
+      title: formData.title,
+      category: formData.category.toLowerCase(),
+      upvotes: 0,
+      status: "planned",
+      description: formData.description,
+      comments: [],
+    };
+    console.log(feedback);
+    dispatch(
+      addFeedback({ apiEndpoint: "/api/feedbacks/addFeedback", data: feedback })
+    );
+    // addFeedback(formData);
   }
 
   function toggleSelectDropdown() {
@@ -95,7 +111,7 @@ const AddFeedback = function () {
               className={`${formsStyle.inputField} ${
                 errors.detail ? formsStyle.inputError : ""
               }`}
-              {...register("detail", {
+              {...register("description", {
                 required: { value: true, message: "Can't be empty" },
               })}
             />

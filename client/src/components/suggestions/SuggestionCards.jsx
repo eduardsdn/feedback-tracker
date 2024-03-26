@@ -13,6 +13,8 @@ const SuggestionCards = function ({ feedbacks }) {
   //   dispatch(fetchFeedback());
   // }, []);
 
+  console.log(feedbacks);
+
   return (
     <section className={suggestionCardsStyle.suggestionCards}>
       {feedbacks.map((feedback) => (
