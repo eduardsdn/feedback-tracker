@@ -5,8 +5,6 @@ const Upvote = function ({ upvotes }) {
   return (
     <div className={upvoteStyle.upvote}>
       <div className={upvoteStyle.arrowUp}></div>
-
-      {/* props here */}
       <p className={upvoteStyle.numOfUpvotes}>{upvotes}</p>
     </div>
   );

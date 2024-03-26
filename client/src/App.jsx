@@ -9,6 +9,7 @@ const App = function () {
   return (
     <BrowserRouter>
       <div className={GlobalCSS.app}>
+        {/* set up routes */}
         <Routes>
           <Route path="/" element={<Suggestions />} />
           <Route path="/addfeedback" element={<AddFeedback />}></Route>

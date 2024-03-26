@@ -5,11 +5,10 @@ import dropdownStyle from "../../styles/suggestions/sortDropdown.module.scss";
 import checkIcon from "../../assets/shared/icon-check.svg";
 
 const SortDropwdown = function () {
-  const sortBy = useSelector((state) => state.sortSuggestions.sortBy);
   const dispatch = useDispatch();
-  console.log(sortBy);
 
   const handleChooseSortBy = function (sortBy) {
+    //dispatch changeSortingOption action to sortSuggestions reducer passing sortBy option
     dispatch(changeSortingOption(sortBy));
   };
 

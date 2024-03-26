@@ -2,16 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../buttons/Button";
 import suggestionsTopPanelStyle from "../../styles/suggestions/suggestionsTopPanel.module.scss";
-import buttonsStyle from "../../styles/buttons.module.scss";
 import lightBulbImg from "../../assets/suggestions/desktop/bulb.svg";
-import plusIcon from "../../assets/shared/icon-plus.svg";
 import SortDropwdown from "./SortDropdown";
 import arrowDownIcon from "../../assets/shared/icon-arrow-down.svg";
 
 const SuggestionsTopPanel = function ({ numOfSuggestions }) {
-  const [menuHidden, setMenuHidden] = React.useState(true);
+  const [menuHidden, setMenuHidden] = React.useState(true); //state for handling if dropdown menu with sort oprions in shown
 
-  const handleClick = function () {
+  const handleMenuShown = function () {
+    //toggle menuHidden
     if (menuHidden === false) {
       setMenuHidden(true);
     } else if (menuHidden === true) {
@@ -28,24 +27,18 @@ const SuggestionsTopPanel = function ({ numOfSuggestions }) {
             {`${numOfSuggestions} Suggestions`}
           </div>
         </div>
-
-        {!menuHidden ? <SortDropwdown /> : null}
+        {!menuHidden ? <SortDropwdown /> : null}{" "}
+        {/* if menu hidden is false render sortDropDown menu component */}
         <div
           className={suggestionsTopPanelStyle.filter}
-          // onMouseEnter={() => setMenuHidden(false)}
-          // onMouseLeave={() => setMenuHidden(true)}
-          onClick={() => handleClick()}
+          onClick={() => handleMenuShown()}
         >
           <p className={suggestionsTopPanelStyle.text}>
             Sort by :{" "}
             <span className={suggestionsTopPanelStyle.chosenFilter}>
               Most Upvotes
             </span>
-            {/* <div
-              className={`${suggestionsTopPanelStyle.filterArrowIcon} ${
-                !menuHidden ? suggestionsTopPanelStyle.rotate : ""
-              }`}
-            ></div> */}
+            {/* TODO: change chosen filter text based on state*/}
             <img
               src={arrowDownIcon}
               alt=""
@@ -53,17 +46,13 @@ const SuggestionsTopPanel = function ({ numOfSuggestions }) {
                 !menuHidden ? suggestionsTopPanelStyle.rotate : ""
               }`}
             />
+            {/* to animate give arrow icon rotate classname when menu is shown */}
           </p>
         </div>
       </div>
 
+      {/* link to addFeedback page (form) */}
       <Link to="/addfeedback">
-        {/* <button
-          className={`${buttonsStyle.btn} ${buttonsStyle.purple} ${buttonsStyle.addFeedbackBtn}`}
-        >
-          <img src={plusIcon} alt="" />
-          Add Feedback
-        </button> */}
         <Button
           text={"Add Feedback"}
           color={"purple"}

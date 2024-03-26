@@ -1,8 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchFeedback } from "../state/feedbackSlice";
-// import Title from "../components/Title";
-// import Categories from "../components/Categories";
 import suggestionsStyle from "../styles/suggestions/suggestions.module.scss";
 import SuggestionsLeftPanel from "../components/suggestions/SuggestionsLeftPanel";
 import SuggestionsTopPanel from "../components/suggestions/SuggestionsTopPanel";
@@ -10,41 +8,30 @@ import SuggestionCards from "../components/suggestions/SuggestionCards";
 import NoSuggestions from "../components/suggestions/NoSuggestions";
 
 const Suggestions = function () {
-  const feedbacks = useSelector((state) => state.feedback.feedback);
-  // console.log(useSelector((state) => state));
+  const dispatch = useDispatch();
+  const feedbacks = useSelector((state) => state.feedback.feedback); //grab feedbacks from the store
   const categoryFilter = useSelector(
+    //grab current category filter from the store
     (state) => state.categoryFilter.chosenCategory
   );
-  const sortBy = useSelector((state) => state.sortSuggestions.sortBy);
+  const sortBy = useSelector((state) => state.sortSuggestions.sortBy); //grab current sorting option from the store
 
-  const dispatch = useDispatch();
-
-  // console.log(categoryFilter);
-
-  //MAKE API ENDPOINTS !
   React.useEffect(() => {
-    // if (categoryFilter === "All") {
-    //   // dispatch(fetchFeedback("/api/feedbacks/all"));
-    //   dispatch(fetchFeedback(`/api/feedbacks/all/${sortBy}`));
-    // } else
+    //on state change of category filter or sorting option dispatch fetchFeedback action to feedbackReducer providing api endpoint with params
     dispatch(fetchFeedback(`/api/feedbacks/${categoryFilter}/${sortBy}`));
   }, [categoryFilter, sortBy]);
 
-  // else if (categoryFilter === "Feature") {
-  //   dispatch(fetchFeedback("/api/feedbacks/feature"));
-  // }
-
-  const numOfSuggestions = feedbacks.length;
+  const numOfSuggestions = feedbacks.length; // get number of suggestions to display in SuggestionsTopPanel
 
   return (
     <div className={suggestionsStyle.suggestions}>
       <SuggestionsLeftPanel />
       <main>
         <SuggestionsTopPanel numOfSuggestions={numOfSuggestions} />
-        {numOfSuggestions > 0 ? (
-          <SuggestionCards feedbacks={feedbacks} />
+        {numOfSuggestions > 0 ? ( //if there are feedback suggestions render suggestion cards
+          <SuggestionCards feedbacks={feedbacks} /> //pass feedbacks to cards components
         ) : (
-          <NoSuggestions />
+          <NoSuggestions /> //if no feedback suggestions render this
         )}
       </main>
     </div>

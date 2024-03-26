@@ -21,20 +21,16 @@ const addFeedback = async function (feedback) {
 };
 
 const getSortedFeedbacksByCategory = async function (category, sortBy) {
-  let find = {};
-  let field = "upvotes";
-  let order = 1;
-
-  console.log(category, sortBy);
+  let find = {}; // = all by default
 
   if (category !== "all") {
+    //if not looking for all, change query based on provided search category
     find = { category: category };
   }
 
-  // console.log(find);
-  // console.log(`${order}`);
-
-  switch (sortBy) {
+  switch (
+    sortBy //based on provided sort option, call corresponding function with corresponding order of sorting
+  ) {
     case "most_upvotes":
       return sortByUpvotes(-1);
     case "least_upvotes":
@@ -46,6 +42,7 @@ const getSortedFeedbacksByCategory = async function (category, sortBy) {
   }
 
   async function sortByUpvotes(order) {
+    //query DB sort by upvotes
     const feedbacks = await client
       .db("FeedbackTracker")
       .collection("Feedbacks")
@@ -56,8 +53,7 @@ const getSortedFeedbacksByCategory = async function (category, sortBy) {
   }
 
   async function sortByComments(order) {
-    console.log(find);
-    console.log(order);
+    //query DB sort by comments
     const feedbacks = client
       .db("FeedbackTracker")
       .collection("Feedbacks")
@@ -78,19 +74,8 @@ const getSortedFeedbacksByCategory = async function (category, sortBy) {
       ])
       .toArray();
 
-    // console.log(feedbacks);
     return feedbacks;
   }
 };
-
-// const getAllFeedbacks = async function () {
-//   const feedbacksAll = await client
-//     .db("FeedbackTracker")
-//     .collection("Feedbacks")
-//     .find({})
-//     .toArray();
-
-//   return feedbacksAll;
-// };
 
 export { getSortedFeedbacksByCategory, addFeedback };

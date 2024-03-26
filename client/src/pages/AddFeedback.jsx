@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { UseDispatch, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addFeedback } from "../state/feedbackSlice";
 import { Link } from "react-router-dom";
 import SelectInputDropdown from "../components/forms/SelectInputDropdown";
@@ -10,15 +10,17 @@ import iconArrowLeft from "../assets/shared/icon-arrow-left.svg";
 import plusIcon from "../assets/shared/icon-new-feedback.svg";
 
 const AddFeedback = function () {
+  // For this form I make use of react hook form
   const { register, handleSubmit, formState } = useForm();
   const { errors } = formState;
-  const [selectHidden, setSelectHidden] = React.useState(true);
-  const [selectedOption, setSelectedOption] = React.useState("Feature");
-  const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"];
+  const [selectHidden, setSelectHidden] = React.useState(true); //state handling if select input dropdown is shown
+  const [selectedOption, setSelectedOption] = React.useState("Feature"); //state handling select input value, Feature by default
+  const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"]; //array of categories available in select input dropdown
 
   const dispatch = useDispatch();
 
   function onSubmit(formData) {
+    // define feedback object which will be passed in post request body
     const feedback = {
       title: formData.title,
       category: formData.category.toLowerCase(),
@@ -27,16 +29,13 @@ const AddFeedback = function () {
       description: formData.description,
       comments: [],
     };
-    console.log(feedback);
     dispatch(
-      addFeedback({ apiEndpoint: "/api/feedbacks/addFeedback", data: feedback })
+      addFeedback({ apiEndpoint: "/api/feedbacks/addFeedback", data: feedback }) //dispatch addFeedback action to feedback reducer passing feedback object
     );
-    // addFeedback(formData);
   }
 
   function toggleSelectDropdown() {
     setSelectHidden(!selectHidden);
-    console.log(selectHidden);
   }
 
   function selectOption(option) {

@@ -8,14 +8,9 @@ dotenv.config();
 
 app.use(cors({ origin: "http://localhost:3003" }), express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hi!");
-});
-
 app.get("/api/feedbacks/:category/:sortBy", async (req, res) => {
   const category = req.params.category;
   const sortBy = req.params.sortBy;
-  console.log(category, sortBy);
   const feedbacksFeature = await getSortedFeedbacksByCategory(category, sortBy);
   res.send(feedbacksFeature);
 });
@@ -23,9 +18,6 @@ app.get("/api/feedbacks/:category/:sortBy", async (req, res) => {
 app.post("/api/feedbacks/addFeedback", (req, res) => {
   const feedback = req.body;
   addFeedback(feedback);
-  // console.log("reached");
-  // console.log(body);
-  // res.send("recieved");
 });
 
 const PORT = process.env.PORT || 5001;
