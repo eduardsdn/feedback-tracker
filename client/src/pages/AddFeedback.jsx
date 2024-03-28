@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addFeedback } from "../state/feedbackSlice";
 import { Link } from "react-router-dom";
-import SelectInputDropdown from "../components/forms/SelectInputDropdown";
+import DropdownMenu from "../components/shared/DropdownMenu";
 import Button from "../components/buttons/Button";
 import formsStyle from "../styles/forms/forms.module.scss";
 import iconArrowLeft from "../assets/shared/icon-arrow-left.svg";
@@ -30,11 +30,14 @@ const AddFeedback = function () {
       comments: [],
     };
     dispatch(
-      addFeedback({ apiEndpoint: "/api/feedbacks/addFeedback", data: feedback }) //dispatch addFeedback action to feedback reducer passing feedback object
+      addFeedback({
+        apiEndpoint: "http://localhost:5006/api/feedbacks/addFeedback",
+        data: feedback,
+      }) //dispatch addFeedback action to feedback reducer passing feedback object
     );
   }
 
-  function toggleSelectDropdown() {
+  function toggleDropdownMenu() {
     setSelectHidden(!selectHidden);
   }
 
@@ -89,12 +92,13 @@ const AddFeedback = function () {
               type="text"
               readOnly
               value={selectedOption}
-              onClick={toggleSelectDropdown}
+              onClick={toggleDropdownMenu}
               {...register("category")}
             />
             {!selectHidden ? (
-              <SelectInputDropdown
-                categories={categories}
+              <DropdownMenu
+                mountedOn={"form"}
+                options={categories}
                 selectOption={selectOption}
               />
             ) : null}

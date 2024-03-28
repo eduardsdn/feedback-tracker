@@ -1,13 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { changeSortingOption } from "../../state/sortSuggestionsSlice";
 import Button from "../buttons/Button";
 import suggestionsTopPanelStyle from "../../styles/suggestions/suggestionsTopPanel.module.scss";
 import lightBulbImg from "../../assets/suggestions/desktop/bulb.svg";
-import SortDropwdown from "./SortDropdown";
+import DropdownMenu from "../shared/DropdownMenu";
 import arrowDownIcon from "../../assets/shared/icon-arrow-down.svg";
 
 const SuggestionsTopPanel = function ({ numOfSuggestions }) {
+  const dispatch = useDispatch();
+
+  const handleChooseSortBy = function (sortBy) {
+    //dispatch changeSortingOption action to sortSuggestions reducer passing sortBy option
+    dispatch(changeSortingOption(sortBy));
+  };
+
   const [menuHidden, setMenuHidden] = React.useState(true); //state for handling if dropdown menu with sort oprions in shown
+  const sortingOptions = [
+    "Most upvotes",
+    "Least upvotes",
+    "Most comments",
+    "Least comments",
+  ];
 
   const handleMenuShown = function () {
     //toggle menuHidden
@@ -27,7 +42,15 @@ const SuggestionsTopPanel = function ({ numOfSuggestions }) {
             {`${numOfSuggestions} Suggestions`}
           </div>
         </div>
-        {!menuHidden ? <SortDropwdown /> : null}{" "}
+        {!menuHidden ? (
+          <DropdownMenu
+            options={sortingOptions}
+            mountedOn={"topPanel"}
+            selectOption={handleChooseSortBy}
+          />
+        ) : (
+          ""
+        )}{" "}
         {/* if menu hidden is false render sortDropDown menu component */}
         <div
           className={suggestionsTopPanelStyle.filter}

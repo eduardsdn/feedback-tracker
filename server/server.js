@@ -21,4 +21,4 @@ app.post("/api/feedbacks/addFeedback", (req, res) => {
 });
 
 const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => `Server is listening on port ${PORT}`);
+app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));

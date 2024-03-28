@@ -22,7 +22,7 @@ const addFeedback = async function (feedback) {
 
 const getSortedFeedbacksByCategory = async function (category, sortBy) {
   let find = {}; // = all by default
-
+  console.log(sortBy);
   if (category !== "all") {
     //if not looking for all, change query based on provided search category
     find = { category: category };
