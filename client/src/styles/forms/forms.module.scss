@@ -1,7 +1,7 @@
 @import "../variables";
 
 .addFeedback {
-  padding-top: 92px;
+  padding-top: 40px;
   .navigation {
     display: flex;
     justify-content: flex-start;
@@ -71,7 +71,8 @@
         }
 
         textarea {
-          height: 120px;
+          font-family: inherit;
+          height: 96px;
           resize: none;
           // overflow: scroll;
         }
@@ -103,7 +104,7 @@
     .buttonsContainer {
       justify-content: end;
       gap: 16px;
-      margin-top: 32px;
+      margin-top: 12px;
       display: flex;
     }
   }
