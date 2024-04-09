@@ -17,7 +17,7 @@ const Suggestions = function () {
   const sortBy = useSelector((state) => state.sortSuggestions.sortBy); //grab current sorting option from the store
 
   React.useEffect(() => {
-    console.log(sortBy);
+    // console.log(sortBy);
     //on state change of category filter or sorting option dispatch fetchFeedback action to feedbackReducer providing api endpoint with params
     dispatch(
       fetchFeedback(

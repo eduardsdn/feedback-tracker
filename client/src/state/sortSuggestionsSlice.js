@@ -9,9 +9,9 @@ const sortSuggestionsSlice = createSlice({
   initialState,
   reducers: {
     changeSortingOption: (state, action) => {
-      console.log(action.payload);
+      // console.log(action.payload);
       state.sortBy = action.payload;
-      console.log(state.sortBy);
+      // console.log(state.sortBy);
     },
   },
 });

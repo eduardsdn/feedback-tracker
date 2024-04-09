@@ -10,6 +10,14 @@ const DropdownOption = function ({
   selectedOption,
   isLastChild,
 }) {
+  // console.log(selectedOption);
+  let isActive = false;
+  if (selectedOption === option) {
+    isActive = true;
+  } else {
+  }
+
+  // console.log(option + "rerender");
   let selectFunctionAttribute = option;
   if (sortBy) {
     selectFunctionAttribute = sortBy;
@@ -22,7 +30,8 @@ const DropdownOption = function ({
       } `}
       onClick={() => selectOption(selectFunctionAttribute)}
     >
-      {option}
+      <div>{option}</div>
+      {isActive === true ? <img src={checkIcon} alt="" /> : ""}
     </div>
   );
 };
@@ -33,8 +42,6 @@ const DropdownMenu = function ({
   selectOption,
   selectedOption,
 }) {
-  console.log(selectedOption);
-
   if (mountedOn === "topPanel") {
     return (
       <div
