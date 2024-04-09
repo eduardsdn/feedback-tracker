@@ -28,6 +28,24 @@ const SuggestionsTopPanel = function ({ numOfSuggestions }) {
     "Least comments",
   ];
 
+  let sortinOptionName = "";
+  switch (currentSortingOption) {
+    case "most_upvotes":
+      sortinOptionName = "Most Upvotes";
+      break;
+    case "least_upvotes":
+      sortinOptionName = "Least Upvotes";
+      break;
+    case "most_comments":
+      sortinOptionName = "Most Comments";
+      break;
+    case "least_comments":
+      sortinOptionName = "Least Comments";
+      break;
+    default:
+      sortinOptionName = "Unknown option";
+  }
+
   const handleMenuShown = function () {
     //toggle menuHidden
     if (menuHidden === false) {
@@ -64,7 +82,8 @@ const SuggestionsTopPanel = function ({ numOfSuggestions }) {
           <p className={suggestionsTopPanelStyle.text}>
             Sort by :{" "}
             <span className={suggestionsTopPanelStyle.chosenFilter}>
-              Most Upvotes
+              {/* Most Upvotes */}
+              {sortinOptionName}
             </span>
             {/* TODO: change chosen filter text based on state*/}
             <img

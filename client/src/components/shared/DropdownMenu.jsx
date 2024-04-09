@@ -65,6 +65,9 @@ const DropdownMenu = function ({
               break;
             case "Least comments":
               sortBy = "least_comments";
+              break;
+            default:
+              sortBy = "Unknown option";
           }
 
           if (index === options.length - 1) {
