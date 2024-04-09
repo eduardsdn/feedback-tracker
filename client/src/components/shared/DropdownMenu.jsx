@@ -10,17 +10,21 @@ const DropdownOption = function ({
   selectedOption,
   isLastChild,
 }) {
-  // console.log(selectedOption);
   let isActive = false;
-  if (selectedOption === option) {
-    isActive = true;
-  } else {
-  }
+  // if (selectedOption === option) {
+  //   isActive = true;
+  // }
 
-  // console.log(option + "rerender");
   let selectFunctionAttribute = option;
   if (sortBy) {
     selectFunctionAttribute = sortBy;
+    if (selectedOption === sortBy) {
+      isActive = true;
+    }
+  } else if (!sortBy) {
+    if (selectedOption === option) {
+      isActive = true;
+    }
   }
 
   return (
