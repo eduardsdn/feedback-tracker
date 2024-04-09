@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addFeedback } from "../state/feedbackSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DropdownMenu from "../components/shared/DropdownMenu";
 import Button from "../components/buttons/Button";
 import GoBackBtn from "../components/buttons/GoBackBtn";
@@ -19,6 +19,7 @@ const AddFeedback = function () {
   const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"]; //array of categories available in select input dropdown
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function onSubmit(formData) {
     // define feedback object which will be passed in post request body
@@ -36,6 +37,7 @@ const AddFeedback = function () {
         data: feedback,
       }) //dispatch addFeedback action to feedback reducer passing feedback object
     );
+    navigate("/");
   }
 
   function toggleDropdownMenu() {
