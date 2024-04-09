@@ -1,7 +1,7 @@
 import React from "react";
 import GlobalCSS from "./styles/app.module.scss";
-
 import Suggestions from "./pages/Suggestions";
+import FeedbackDetail from "./pages/FeedbackDetail";
 import AddFeedback from "./pages/AddFeedback";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -13,6 +13,7 @@ const App = function () {
         <Routes>
           <Route path="/" element={<Suggestions />} />
           <Route path="/addfeedback" element={<AddFeedback />}></Route>
+          <Route path="/feedbackdetail" element={<FeedbackDetail />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

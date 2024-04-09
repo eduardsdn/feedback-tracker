@@ -1,6 +1,7 @@
 import React from "react";
-import Upvote from "../shared/Upvote";
-import Category from "../shared/Category";
+import { useNavigate } from "react-router-dom";
+import Upvote from "./Upvote";
+import Category from "./Category";
 import suggestionCardStyle from "../../styles/suggestions/suggestionCard.module.scss";
 import commentIcon from "../../assets/shared/icon-comments.svg";
 
@@ -19,8 +20,17 @@ const SuggestionCard = function ({
     numOfComments = 0; //otherwise set number of comments to 0
   }
 
+  const navigate = useNavigate();
+
+  function handleClickCard() {
+    navigate("/feedbackdetail");
+  }
+
   return (
-    <div className={suggestionCardStyle.suggestionCard}>
+    <div
+      className={suggestionCardStyle.suggestionCard}
+      onClick={() => navigate("/feedbackdetail")}
+    >
       <div className={suggestionCardStyle.left}>
         <div className={suggestionCardStyle.upvote}>
           <Upvote upvotes={upvotes}></Upvote>

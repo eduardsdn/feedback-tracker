@@ -3,11 +3,37 @@ import selectInputStyle from "../../styles/dropdownMenu.module.scss";
 import { useSelector } from "react-redux";
 import checkIcon from "../../assets/shared/icon-check.svg";
 
-const DropdownMenu = function ({ mountedOn, options, selectOption }) {
-  const currentSortingOption = useSelector(
-    (state) => state.sortSuggestions.sortBy
+const DropdownOption = function ({
+  option,
+  selectOption,
+  sortBy,
+  selectedOption,
+  isLastChild,
+}) {
+  let selectFunctionAttribute = option;
+  if (sortBy) {
+    selectFunctionAttribute = sortBy;
+  }
+
+  return (
+    <div
+      className={`${selectInputStyle.option} ${
+        isLastChild ? selectInputStyle.underlined : ""
+      } `}
+      onClick={() => selectOption(selectFunctionAttribute)}
+    >
+      {option}
+    </div>
   );
-  console.log(currentSortingOption);
+};
+
+const DropdownMenu = function ({
+  mountedOn,
+  options,
+  selectOption,
+  selectedOption,
+}) {
+  console.log(selectedOption);
 
   if (mountedOn === "topPanel") {
     return (
@@ -33,21 +59,23 @@ const DropdownMenu = function ({ mountedOn, options, selectOption }) {
           if (index === options.length - 1) {
             // This is the last element, apply any operation you want
             return (
-              <div
-                className={selectInputStyle.option}
-                onClick={() => selectOption(sortBy)}
-              >
-                {option}
-              </div>
+              <DropdownOption
+                option={option}
+                selectOption={selectOption}
+                selectedOption={selectedOption}
+                sortBy={sortBy}
+                isLastChild={false}
+              />
             ); // For example, doubling the value of the last element
           } else {
             return (
-              <div
-                className={`${selectInputStyle.option} ${selectInputStyle.underlined}`}
-                onClick={() => selectOption(sortBy)}
-              >
-                {option}
-              </div>
+              <DropdownOption
+                option={option}
+                selectOption={selectOption}
+                selectedOption={selectedOption}
+                sortBy={sortBy}
+                isLastChild={true}
+              />
             );
           }
         })}
@@ -62,21 +90,21 @@ const DropdownMenu = function ({ mountedOn, options, selectOption }) {
           if (index === options.length - 1) {
             // This is the last element, apply any operation you want
             return (
-              <div
-                className={selectInputStyle.option}
-                onClick={() => selectOption(option)}
-              >
-                {option}
-              </div>
+              <DropdownOption
+                option={option}
+                selectOption={selectOption}
+                selectedOption={selectedOption}
+                isLastChild={false}
+              />
             ); // For example, doubling the value of the last element
           } else {
             return (
-              <div
-                className={`${selectInputStyle.option} ${selectInputStyle.underlined}`}
-                onClick={() => selectOption(option)}
-              >
-                {option}
-              </div>
+              <DropdownOption
+                option={option}
+                selectOption={selectOption}
+                selectedOption={selectedOption}
+                isLastChild={true}
+              />
             );
           }
         })}

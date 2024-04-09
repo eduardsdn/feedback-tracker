@@ -1,6 +1,6 @@
 import React from "react";
 import suggestionCardsStyle from "../../styles/suggestions/suggestionCards.module.scss";
-import SuggestionCard from "./SuggestionCard";
+import SuggestionCard from "../shared/SuggestionCard";
 
 // temorary
 const SuggestionCards = function ({ feedbacks }) {

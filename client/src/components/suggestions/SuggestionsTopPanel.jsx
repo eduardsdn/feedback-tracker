@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { changeSortingOption } from "../../state/sortSuggestionsSlice";
 import Button from "../buttons/Button";
 import suggestionsTopPanelStyle from "../../styles/suggestions/suggestionsTopPanel.module.scss";
@@ -10,6 +10,10 @@ import arrowDownIcon from "../../assets/shared/icon-arrow-down.svg";
 
 const SuggestionsTopPanel = function ({ numOfSuggestions }) {
   const dispatch = useDispatch();
+
+  const currentSortingOption = useSelector(
+    (state) => state.sortSuggestions.sortBy
+  );
 
   const handleChooseSortBy = function (sortBy) {
     //dispatch changeSortingOption action to sortSuggestions reducer passing sortBy option
@@ -47,6 +51,7 @@ const SuggestionsTopPanel = function ({ numOfSuggestions }) {
             options={sortingOptions}
             mountedOn={"topPanel"}
             selectOption={handleChooseSortBy}
+            selectedOption={currentSortingOption}
           />
         ) : (
           ""

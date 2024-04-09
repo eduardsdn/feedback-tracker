@@ -5,8 +5,9 @@ import { addFeedback } from "../state/feedbackSlice";
 import { Link } from "react-router-dom";
 import DropdownMenu from "../components/shared/DropdownMenu";
 import Button from "../components/buttons/Button";
+import GoBackBtn from "../components/buttons/GoBackBtn";
 import formsStyle from "../styles/forms/forms.module.scss";
-import iconArrowLeft from "../assets/shared/icon-arrow-left.svg";
+// import iconArrowLeft from "../assets/shared/icon-arrow-left.svg";
 import plusIcon from "../assets/shared/icon-new-feedback.svg";
 
 const AddFeedback = function () {
@@ -49,10 +50,7 @@ const AddFeedback = function () {
     <div className={formsStyle.addFeedback}>
       <header>
         <nav className={formsStyle.navigation}>
-          <Link to="/" className={formsStyle.goBackLink}>
-            <img src={iconArrowLeft} alt="" />
-            <p className={formsStyle.linkText}>Go Back</p>
-          </Link>
+          <GoBackBtn route="/" />
         </nav>
       </header>
 
@@ -100,6 +98,7 @@ const AddFeedback = function () {
                 mountedOn={"form"}
                 options={categories}
                 selectOption={selectOption}
+                selectedOption={selectedOption}
               />
             ) : null}
           </div>

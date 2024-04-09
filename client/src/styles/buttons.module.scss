@@ -40,6 +40,18 @@ a {
 .red {
 }
 
+.goBackLink {
+  display: flex;
+  align-items: center;
+}
+
+.linkText {
+  margin-left: 16px;
+  font-weight: 700;
+  font-size: 14px;
+  color: $gray;
+}
+
 .addFeedbackBtn {
   display: flex;
   justify-content: center;
