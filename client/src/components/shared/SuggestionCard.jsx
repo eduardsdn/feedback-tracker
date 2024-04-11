@@ -14,7 +14,7 @@ const SuggestionCard = function ({
   comments,
 }) {
   let numOfComments;
-  if (comments != undefined) {
+  if (comments !== undefined) {
     //if feedback has comments
     numOfComments = comments.length; //get number of comments
   } else {
@@ -30,7 +30,18 @@ const SuggestionCard = function ({
   return (
     <div
       className={suggestionCardStyle.suggestionCard}
-      onClick={() => navigate(`/feedbackdetail/${id}`)}
+      onClick={() =>
+        navigate("/feedbackdetail", {
+          state: {
+            id: id,
+            title: title,
+            description: description,
+            category: category,
+            upvotes: upvotes,
+            comments: comments,
+          },
+        })
+      }
     >
       <div className={suggestionCardStyle.left}>
         <div className={suggestionCardStyle.upvote}>
