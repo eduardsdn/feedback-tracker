@@ -1,7 +1,7 @@
 @import "../variables";
 
 .addFeedback {
-  padding-top: 40px;
+  padding-top: 92px;
   .navigation {
     display: flex;
     justify-content: flex-start;
@@ -26,6 +26,7 @@
   .formContainer {
     position: relative;
     margin-top: 68px;
+    margin-bottom: 80px;
     padding: 52px 42px 40px 42px;
     border-radius: 10px;
     background-color: $white;

@@ -6,6 +6,7 @@ import suggestionCardStyle from "../../styles/suggestions/suggestionCard.module.
 import commentIcon from "../../assets/shared/icon-comments.svg";
 
 const SuggestionCard = function ({
+  id,
   title,
   description,
   category,
@@ -19,17 +20,17 @@ const SuggestionCard = function ({
   } else {
     numOfComments = 0; //otherwise set number of comments to 0
   }
-
   const navigate = useNavigate();
 
-  function handleClickCard() {
-    navigate("/feedbackdetail");
-  }
+  // const handleClickCard = () => {
+  //   navigate("/feedbackdetail");
+  //   history.push({ pathname: "/feedbackdetail", state: { feedback: title } });
+  // };
 
   return (
     <div
       className={suggestionCardStyle.suggestionCard}
-      onClick={() => navigate("/feedbackdetail")}
+      onClick={() => navigate(`/feedbackdetail/${id}`)}
     >
       <div className={suggestionCardStyle.left}>
         <div className={suggestionCardStyle.upvote}>

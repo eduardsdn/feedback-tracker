@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addFeedback } from "../state/feedbackSlice";
@@ -24,6 +25,7 @@ const AddFeedback = function () {
   function onSubmit(formData) {
     // define feedback object which will be passed in post request body
     const feedback = {
+      id: uuidv4(),
       title: formData.title,
       category: formData.category.toLowerCase(),
       upvotes: 0,

@@ -13,7 +13,11 @@ const App = function () {
         <Routes>
           <Route path="/" element={<Suggestions />} />
           <Route path="/addfeedback" element={<AddFeedback />}></Route>
-          <Route path="/feedbackdetail" element={<FeedbackDetail />}></Route>
+          <Route
+            path="/feedbackdetail/:feedbackID"
+            // render={(props) => <FeedbackDetail feedback={props.feedback} />}
+            element={<FeedbackDetail />}
+          ></Route>
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,6 +1,5 @@
 import React from "react";
 import selectInputStyle from "../../styles/dropdownMenu.module.scss";
-import { useSelector } from "react-redux";
 import checkIcon from "../../assets/shared/icon-check.svg";
 
 const DropdownOption = function ({
