@@ -12,10 +12,14 @@ const FeedbackDetail = function () {
   return (
     <div className={feedbackDetailStyle.feedbackDetail}>
       <div className={feedbackDetailStyle.topButtons}>
-        <SuggestionCard {...feedbackInfo} />
         <GoBackBtn route="/" />
         <Button text="Edit Feedback" color="blue" />
       </div>
+      <div className={feedbackDetailStyle.cardHolder}>
+        <SuggestionCard {...feedbackInfo} />
+      </div>
+
+      <section className={feedbackDetailStyle.comments}></section>
     </div>
   );
 };

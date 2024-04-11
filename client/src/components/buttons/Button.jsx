@@ -12,13 +12,14 @@ const Button = function ({ text, color, hasPlusIcon, type }) {
       colorClass = buttonsStyle.purple;
       break;
     case "blue":
-      colorClass = buttonsStyle.purple;
+      colorClass = buttonsStyle.blue;
       break;
     case "black":
       colorClass = buttonsStyle.black;
       break;
 
     default:
+      colorClass = buttonsStyle.black;
       break;
   }
 

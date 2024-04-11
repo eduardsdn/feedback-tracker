@@ -1,1 +1,20 @@
 @import "../variables";
+
+.feedbackDetail {
+  padding-top: 100px;
+  width: 100%;
+  //   display: flex;
+  //   flex-direction: column;
+  .topButtons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .feedbackCard {
+    display: none;
+  }
+
+  .cardHolder {
+    padding-top: 24px;
+  }
+}
