@@ -1,51 +1,27 @@
 import React from "react";
+import Status from "../shared/Status";
 import roadmapPreviewStyle from "../../styles/suggestions/roadmapPreview.module.scss";
+import { Link, useNavigate } from "react-router-dom";
 
 const RoadmapPreview = function () {
   // MAP ROADMAP PREVIEWS!!!
-
+  const navigate = useNavigate();
   return (
     <div className={roadmapPreviewStyle.roadmapPreview}>
       <div className={roadmapPreviewStyle.top}>
         <h3 className={roadmapPreviewStyle.heading}>Roadmap</h3>
-        <a href="/" className={roadmapPreviewStyle.viewLink}>
+        <div
+          onClick={() => navigate("/roadmap")}
+          className={roadmapPreviewStyle.viewLink}
+        >
           View
-        </a>
+        </div>
       </div>
 
       <div className={roadmapPreviewStyle.statusPreviews}>
-        <div className={roadmapPreviewStyle.statusPreview}>
-          <div className={roadmapPreviewStyle.left}>
-            <div
-              className={roadmapPreviewStyle.colorIndicator}
-              id={roadmapPreviewStyle.planned}
-            ></div>
-            <p className={roadmapPreviewStyle.name}>Planned</p>
-          </div>
-          <p className={roadmapPreviewStyle.amount}>2</p>
-        </div>
-
-        <div className={roadmapPreviewStyle.statusPreview}>
-          <div className={roadmapPreviewStyle.left}>
-            <div
-              className={roadmapPreviewStyle.colorIndicator}
-              id={roadmapPreviewStyle.inProgress}
-            ></div>
-            <p className={roadmapPreviewStyle.name}>In-Progress</p>
-          </div>
-          <p className={roadmapPreviewStyle.amount}>3</p>
-        </div>
-
-        <div className={roadmapPreviewStyle.statusPreview}>
-          <div className={roadmapPreviewStyle.left}>
-            <div
-              className={roadmapPreviewStyle.colorIndicator}
-              id={roadmapPreviewStyle.live}
-            ></div>
-            <p className={roadmapPreviewStyle.name}>Live</p>
-          </div>
-          <p className={roadmapPreviewStyle.amount}>1</p>
-        </div>
+        <Status status={"Planned"} amount={1} />
+        <Status status={"In Progress"} amount={2} />
+        <Status status={"Live"} amount={3} />
       </div>
     </div>
   );
