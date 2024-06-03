@@ -13,12 +13,15 @@ const SuggestionCard = function ({
   upvotes,
   comments,
 }) {
-  let numOfComments;
-  if (comments !== undefined) {
-    //if feedback has comments
-    numOfComments = comments.length; //get number of comments
-  } else {
-    numOfComments = 0; //otherwise set number of comments to 0
+  function getNumOfComments(comments) {
+    let numOfComments;
+    if (comments !== undefined) {
+      //if feedback has comments
+      numOfComments = comments.length; //get number of comments
+    } else {
+      numOfComments = 0; //otherwise set number of comments to 0
+    }
+    return numOfComments;
   }
   const navigate = useNavigate();
 
@@ -56,7 +59,7 @@ const SuggestionCard = function ({
         </div>
       </div>
       <div className={suggestionCardStyle.commentsIndicator}>
-        <CommentCounter numOfComments={numOfComments} />
+        <CommentCounter numOfComments={getNumOfComments(comments)} />
       </div>
     </div>
   );

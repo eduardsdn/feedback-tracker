@@ -3,6 +3,7 @@
 .roadmapTopPanel {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   //   height: 77px;
   padding: 14px 16px 14px 24px;
@@ -14,6 +15,8 @@
     flex-direction: column;
     .title {
       font-size: 24px;
+      color: $white;
+      font-weight: 700;
     }
   }
 }

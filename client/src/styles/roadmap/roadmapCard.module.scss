@@ -1,2 +1,35 @@
+@import "../variables";
+
 .roadmapCard {
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  border-top: solid 5px $peach;
+  border-radius: 10px;
+  background-color: $white;
+  padding: 25px 32px 32px 32px;
+
+  .title {
+    color: $black;
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .description {
+    color: $gray;
+    margin-top: 4px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .categoryHolder {
+    margin-top: 16px;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
 }

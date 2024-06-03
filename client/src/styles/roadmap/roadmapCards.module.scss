@@ -1,0 +1,27 @@
+@import "../variables";
+
+.roadmapCards {
+  margin-top: 48px;
+  display: flex;
+  gap: 19px;
+}
+
+.cardsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .columnInfo {
+    .columnTitle {
+      font-size: 18px;
+      font-weight: 700;
+      color: $black;
+    }
+
+    .columnDescription {
+      font-size: 16px;
+      font-weight: 500;
+      color: $gray;
+    }
+  }
+}
