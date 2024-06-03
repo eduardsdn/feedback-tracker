@@ -27,7 +27,7 @@ const Suggestions = function () {
   }, [categoryFilter, sortBy]);
 
   const numOfSuggestions = feedbacks.length; // get number of suggestions to display in SuggestionsTopPanel
-
+  
   return (
     <div className={suggestionsStyle.suggestions}>
       <SuggestionsLeftPanel />

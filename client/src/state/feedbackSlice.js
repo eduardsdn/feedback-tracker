@@ -10,7 +10,7 @@ const initialState = {
 export const fetchFeedback = createAsyncThunk(
   "feedback/fetchFeedback",
   async (apiEndpoint) => {
-    const response = await axios.get(apiEndpoint); //make get request to apo
+    const response = await axios.get(apiEndpoint); //make get request to api
     return response.data; //retrun fetched data
   }
 );

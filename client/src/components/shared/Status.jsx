@@ -26,7 +26,7 @@ const Status = function ({ status, amount }) {
         ></div>
         <p className={statusStyle.name}>{status}</p>
       </div>
-      <p className={statusStyle.amount}>{amount}</p>
+      {amount ? <p className={statusStyle.amount}>{amount}</p> : null}
     </div>
   );
 };

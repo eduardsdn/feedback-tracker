@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Upvote from "./Upvote";
 import Category from "./Category";
+import CommentCounter from "./CommentCounter";
 import suggestionCardStyle from "../../styles/suggestions/suggestionCard.module.scss";
-import commentIcon from "../../assets/shared/icon-comments.svg";
 
 const SuggestionCard = function ({
   id,
@@ -56,10 +56,7 @@ const SuggestionCard = function ({
         </div>
       </div>
       <div className={suggestionCardStyle.commentsIndicator}>
-        <img src={commentIcon} alt="" />
-        <span className={suggestionCardStyle.commentsAmount}>
-          {numOfComments}
-        </span>
+        <CommentCounter numOfComments={numOfComments} />
       </div>
     </div>
   );

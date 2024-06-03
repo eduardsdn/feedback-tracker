@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchFeedback } from "../state/feedbackSlice";
 
+import roadmapStyle from "../styles/roadmap/roadmap.module.scss";
+
 import RoadmapTopPanel from "../components/roadmap/RoadmapTopPanel";
 import RoadmapCards from "../components/roadmap/RoadmapCards";
 
@@ -29,7 +31,7 @@ const Roadmap = function () {
   // );
 
   return (
-    <div>
+    <div className={roadmapStyle.roadmap}>
       <RoadmapTopPanel />
       <RoadmapCards feedbacks={feedbacks} />
     </div>
