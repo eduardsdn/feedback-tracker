@@ -27,8 +27,21 @@ const RoadmapCard = function ({
     return numOfComments;
   }
 
+  function getColorStatus(status) {
+    switch (status) {
+      case "planned":
+        return roadmapCardStyle.planned;
+      case "in-progress":
+        return roadmapCardStyle.inProgress;
+      case "live":
+        return roadmapCardStyle.live;
+      default:
+        return roadmapCardStyle.planned;
+    }
+  }
+
   return (
-    <div className={roadmapCardStyle.roadmapCard}>
+    <div className={roadmapCardStyle.roadmapCard} id={getColorStatus(status)}>
       <Status status={status} />
       <h1 className={roadmapCardStyle.title}>{title}</h1>
       <p className={roadmapCardStyle.description}>{description}</p>

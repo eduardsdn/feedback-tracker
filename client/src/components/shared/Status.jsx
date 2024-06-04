@@ -4,16 +4,16 @@ import statusStyle from "../../styles/status.module.scss";
 const Status = function ({ status, amount }) {
   const testid = `statusStyle.${status}}`;
 
-  const getColorStatus = function () {
+  const getColorStatus = function (status) {
     switch (status) {
-      case "Planned":
+      case "planned":
         return statusStyle.planned;
-      case "In Progress":
+      case "in-progress":
         return statusStyle.inProgress;
-      case "Live":
+      case "live":
         return statusStyle.live;
       default:
-        return statusStyle.inProgress;
+        return statusStyle.planned;
     }
   };
 

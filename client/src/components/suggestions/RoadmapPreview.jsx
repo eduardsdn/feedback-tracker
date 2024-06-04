@@ -19,9 +19,9 @@ const RoadmapPreview = function () {
       </div>
 
       <div className={roadmapPreviewStyle.statusPreviews}>
-        <Status status={"Planned"} amount={1} />
-        <Status status={"In Progress"} amount={2} />
-        <Status status={"Live"} amount={3} />
+        <Status status={"planned"} amount={1} />
+        <Status status={"in-progress"} amount={2} />
+        <Status status={"live"} amount={3} />
       </div>
     </div>
   );
