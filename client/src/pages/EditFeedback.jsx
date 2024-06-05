@@ -17,18 +17,15 @@ const EditFeedback = function () {
   const { errors } = formState;
   const [selectCategoryHidden, setSelectCategoryHidden] = React.useState(true); //state handling if select input dropdown is shown
   const [selectStatusHidden, setSelectStatusHidden] = React.useState(true);
-  const [selectedCategoryOption, setSelectedCategoryOption] =
-    React.useState("Feature"); //state handling select input value, Feature by default
-  const [selectedStatusOption, setSelectedStatusOption] =
-    React.useState("Planned");
-  React.useState("Planned");
+  const [selectedCategoryOption, setSelectedCategoryOption] = React.useState("Feature"); //state handling select input value, Feature by default
+  const [selectedStatusOption, setSelectedStatusOption] = React.useState("Planned");
+
   const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"]; //array of categories available in select input dropdown
   const statuses = ["Suggestion", "Planned", "In-Progress", "Live"];
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   function toggleCategoryDropdownMenu() {
-    console.log(selectCategoryHidden);
     setSelectCategoryHidden(!selectCategoryHidden);
   }
 
@@ -44,6 +41,10 @@ const EditFeedback = function () {
     setSelectedStatusOption(option);
   }
 
+  function onSubmit(formData) {
+    console.log(formData);
+  }
+
   return (
     <div className={formsStyle.addFeedback}>
       <header>
@@ -55,16 +56,12 @@ const EditFeedback = function () {
       <main className={formsStyle.formContainer}>
         <img src={plusIcon} className={formsStyle.decorIcon} alt="" />
         <h1 className={formsStyle.formTitle}>Create New Feedback</h1>
-        <form className={formsStyle.form} action="">
+        <form className={formsStyle.form} action="" onSubmit={handleSubmit(onSubmit)}>
           <div className={formsStyle.inputHolder}>
             <label htmlFor="title">Feedback Title</label>
-            <p className={formsStyle.inputDescription}>
-              Add a short, descriptive headline
-            </p>
+            <p className={formsStyle.inputDescription}>Add a short, descriptive headline</p>
             <input
-              className={`${formsStyle.inputField} ${
-                errors.title ? formsStyle.inputError : ""
-              }`}
+              className={`${formsStyle.inputField} ${errors.title ? formsStyle.inputError : ""}`}
               id="title"
               type="text"
               {...register("title", {
@@ -76,24 +73,17 @@ const EditFeedback = function () {
 
           <div className={`${formsStyle.inputHolder} ${formsStyle.select}`}>
             <label htmlFor="">Category</label>
-            <p className={formsStyle.inputDescription}>
-              Choose a category for your feedback
-            </p>
+            <p className={formsStyle.inputDescription}>Choose a category for your feedback</p>
             <input
               className={`${formsStyle.inputField} ${formsStyle.select}`}
               type="text"
               readOnly
               value={selectedCategoryOption}
-              onClick={() => toggleCategoryDropdownMenu()}
+              onClick={toggleCategoryDropdownMenu}
               {...register("category")}
             />
             {!selectCategoryHidden ? (
-              <DropdownMenu
-                mountedOn={"form"}
-                options={categories}
-                selectOption={selectCategoryOption}
-                selectedOption={selectedCategoryOption}
-              />
+              <DropdownMenu mountedOn={"form"} options={categories} selectOption={selectCategoryOption} selectedOption={selectedCategoryOption} />
             ) : null}
           </div>
 
@@ -105,29 +95,19 @@ const EditFeedback = function () {
               type="text"
               readOnly
               value={selectedStatusOption}
-              onClick={() => toggleStatusDropdownMenu()}
-              {...register("category")}
+              onClick={toggleStatusDropdownMenu}
+              {...register("status")}
             />
             {!selectStatusHidden ? (
-              <DropdownMenu
-                mountedOn={"form"}
-                options={statuses}
-                selectOption={selectStatusOption}
-                selectedOption={selectedStatusOption}
-              />
+              <DropdownMenu mountedOn={"form"} options={statuses} selectOption={selectStatusOption} selectedOption={selectedStatusOption} />
             ) : null}
           </div>
 
           <div className={formsStyle.inputHolder}>
             <label htmlFor="">Feedback Detail</label>
-            <p className={formsStyle.inputDescription}>
-              Include any specific comments on what should be improved, added,
-              etc.
-            </p>
+            <p className={formsStyle.inputDescription}>Include any specific comments on what should be improved, added, etc.</p>
             <textarea
-              className={`${formsStyle.inputField} ${
-                errors.detail ? formsStyle.inputError : ""
-              }`}
+              className={`${formsStyle.inputField} ${errors.detail ? formsStyle.inputError : ""}`}
               {...register("description", {
                 required: { value: true, message: "Can't be empty" },
               })}
@@ -142,11 +122,7 @@ const EditFeedback = function () {
               <Button color={"black"} text={"Cancel"}></Button>
             </Link>
 
-            <Button
-              color={"purple"}
-              text={"Save Changes"}
-              type="submit"
-            ></Button>
+            <Button color={"purple"} text={"Save Changes"} type="submit"></Button>
           </div>
         </form>
       </main>
