@@ -34,7 +34,7 @@ const DropdownOption = function ({
       onClick={() => selectOption(selectFunctionAttribute)}
     >
       <div>{option}</div>
-      {isActive === true ? <img src={checkIcon} alt="" /> : ""}
+      {isActive ? <img src={checkIcon} alt="" /> : ""}
     </div>
   );
 };

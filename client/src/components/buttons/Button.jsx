@@ -17,7 +17,9 @@ const Button = function ({ text, color, hasPlusIcon, type }) {
     case "black":
       colorClass = buttonsStyle.black;
       break;
-
+    case "red":
+      colorClass = buttonsStyle.red;
+      break;
     default:
       colorClass = buttonsStyle.black;
       break;

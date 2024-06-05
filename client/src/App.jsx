@@ -3,6 +3,7 @@ import GlobalCSS from "./styles/app.module.scss";
 import Suggestions from "./pages/Suggestions";
 import FeedbackDetail from "./pages/FeedbackDetail";
 import AddFeedback from "./pages/AddFeedback";
+import EditFeedback from "./pages/EditFeedback";
 import Roadmap from "./pages/Roadmap";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -16,6 +17,7 @@ const App = function () {
           <Route path="/addfeedback" element={<AddFeedback />}></Route>
           <Route path="/feedbackdetail" element={<FeedbackDetail />}></Route>
           <Route path="/roadmap" element={<Roadmap />}></Route>
+          <Route path="/editfeedback" element={<EditFeedback />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

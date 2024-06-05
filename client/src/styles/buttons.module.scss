@@ -38,6 +38,10 @@ a {
 }
 
 .red {
+  background-color: $red;
+  &:hover {
+    background-color: $redLight;
+  }
 }
 
 .goBackLink {

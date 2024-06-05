@@ -46,4 +46,9 @@ img {
   font-family: $font;
   background-color: $whiteDirty;
   // height: 100vh;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0px 40px 113px 40px;
+  }
 }
