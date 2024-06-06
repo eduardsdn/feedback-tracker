@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import DropdownMenu from "../components/shared/DropdownMenu";
 import Button from "../components/buttons/Button";
@@ -22,8 +22,11 @@ const EditFeedback = function () {
 
   const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"]; //array of categories available in select input dropdown
   const statuses = ["Suggestion", "Planned", "In-Progress", "Live"];
+  const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  console.log(location);
 
   function toggleCategoryDropdownMenu() {
     setSelectCategoryHidden(!selectCategoryHidden);

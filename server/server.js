@@ -15,8 +15,6 @@ app.get("/api/feedbacks/:category/:sortBy", async (req, res) => {
   res.send(feedbacksFeature);
 });
 
-
-
 app.post("/api/feedbacks/addFeedback", (req, res) => {
   const feedback = req.body;
   addFeedback(feedback);

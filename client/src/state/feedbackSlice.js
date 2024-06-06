@@ -7,21 +7,15 @@ const initialState = {
   error: "",
 };
 
-export const fetchFeedback = createAsyncThunk(
-  "feedback/fetchFeedback",
-  async (apiEndpoint) => {
-    const response = await axios.get(apiEndpoint); //make get request to api
-    return response.data; //retrun fetched data
-  }
-);
+export const fetchFeedback = createAsyncThunk("feedback/fetchFeedback", async (apiEndpoint) => {
+  const response = await axios.get(apiEndpoint); //make get request to api
+  return response.data; //retrun fetched data
+});
 
-export const addFeedback = createAsyncThunk(
-  "feedback/addFeedback",
-  async ({ apiEndpoint, data }) => {
-    const response = await axios.post(apiEndpoint, data); //post request with data(feedback object) in the request body
-    return response.data;
-  }
-);
+export const addFeedback = createAsyncThunk("feedback/addFeedback", async ({ apiEndpoint, data }) => {
+  const response = await axios.post(apiEndpoint, data); //post request with data(feedback object) in the request body
+  return response.data;
+});
 
 const feedbackSlice = createSlice({
   name: "feedback",
