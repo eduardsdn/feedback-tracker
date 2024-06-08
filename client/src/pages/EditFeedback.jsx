@@ -1,51 +1,61 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import DropdownMenu from "../components/shared/DropdownMenu";
 import Button from "../components/buttons/Button";
 import GoBackBtn from "../components/buttons/GoBackBtn";
 import formsStyle from "../styles/forms/forms.module.scss";
-
-import plusIcon from "../assets/shared/icon-new-feedback.svg";
+import penIcon from "../assets/shared/icon-edit-feedback.svg";
 
 const EditFeedback = function () {
-  // For this form I make use of react hook form
-  const { register, handleSubmit, formState } = useForm();
-  const { errors } = formState;
+  // For this form I make use of react hook form with default values that come from the useLocation()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const feedbackData = location.state; //get feedback data from feedbackDetail
+
+  const { register, handleSubmit, formState } = useForm({
+    //set up React Hook Form with default values of a targeted feedback
+    defaultValues: {
+      title: feedbackData.title,
+      category: feedbackData.category,
+      status: feedbackData.status,
+      description: feedbackData.description,
+    },
+  });
+
+  const { errors } = formState; //watch for errors
+
   const [selectCategoryHidden, setSelectCategoryHidden] = React.useState(true); //state handling if select input dropdown is shown
   const [selectStatusHidden, setSelectStatusHidden] = React.useState(true);
-  const [selectedCategoryOption, setSelectedCategoryOption] = React.useState("Feature"); //state handling select input value, Feature by default
-  const [selectedStatusOption, setSelectedStatusOption] = React.useState("Planned");
 
   const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"]; //array of categories available in select input dropdown
   const statuses = ["Suggestion", "Planned", "In-Progress", "Live"];
-  const location = useLocation();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
-  console.log(location);
+  const [selectedCategoryOption, setSelectedCategoryOption] = React.useState(feedbackData.category); //state handling select input value, Feature by default
+  const [selectedStatusOption, setSelectedStatusOption] = React.useState("Planned");
 
   function toggleCategoryDropdownMenu() {
     setSelectCategoryHidden(!selectCategoryHidden);
   }
-
   function toggleStatusDropdownMenu() {
     setSelectStatusHidden(!selectStatusHidden);
   }
 
   function selectCategoryOption(option) {
+    //setter functions passed to dropdown menus
     setSelectedCategoryOption(option);
   }
-
   function selectStatusOption(option) {
     setSelectedStatusOption(option);
   }
 
   function onSubmit(formData) {
-    console.log(formData);
+    // SUBMIT
+    console.table(formData);
   }
 
   return (
@@ -57,8 +67,8 @@ const EditFeedback = function () {
       </header>
 
       <main className={formsStyle.formContainer}>
-        <img src={plusIcon} className={formsStyle.decorIcon} alt="" />
-        <h1 className={formsStyle.formTitle}>Create New Feedback</h1>
+        <img src={penIcon} className={formsStyle.decorIcon} alt="" />
+        <h1 className={formsStyle.formTitle}>Edit Feedback</h1>
         <form className={formsStyle.form} action="" onSubmit={handleSubmit(onSubmit)}>
           <div className={formsStyle.inputHolder}>
             <label htmlFor="title">Feedback Title</label>

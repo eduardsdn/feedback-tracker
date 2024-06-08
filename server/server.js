@@ -6,7 +6,7 @@ import { getSortedFeedbacksByCategory, addFeedback } from "./db.js";
 const app = express();
 dotenv.config();
 
-app.use(cors({ origin: "http://localhost:3003" }), express.json());
+app.use(cors({ origin: "http://localhost:3004" }), express.json());
 
 app.get("/api/feedbacks/:category/:sortBy", async (req, res) => {
   const category = req.params.category;
