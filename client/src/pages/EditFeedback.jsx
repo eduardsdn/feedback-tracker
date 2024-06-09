@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import axios from "axios";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import DropdownMenu from "../components/shared/DropdownMenu";
@@ -58,6 +59,14 @@ const EditFeedback = function () {
     console.table(formData);
   }
 
+  const feedbackID = feedbackData.id;
+
+  function handleDelete(event) {
+    event.preventDefault();
+    console.log("deleted", feedbackID);
+    axios.delete(`http://localhost:5006/api/feedbacks/deleteFeedback/${feedbackID}`);
+  }
+
   return (
     <div className={formsStyle.addFeedback}>
       <header>
@@ -69,7 +78,7 @@ const EditFeedback = function () {
       <main className={formsStyle.formContainer}>
         <img src={penIcon} className={formsStyle.decorIcon} alt="" />
         <h1 className={formsStyle.formTitle}>Edit Feedback</h1>
-        <form className={formsStyle.form} action="" onSubmit={handleSubmit(onSubmit)}>
+        <form className={formsStyle.form} action="" onSubmit={() => handleSubmit(onSubmit)}>
           <div className={formsStyle.inputHolder}>
             <label htmlFor="title">Feedback Title</label>
             <p className={formsStyle.inputDescription}>Add a short, descriptive headline</p>
@@ -129,7 +138,9 @@ const EditFeedback = function () {
           </div>
 
           <div className={formsStyle.buttonsContainer}>
-            <Button color={"red"} text={"Delete"}></Button>
+            <div onClick={handleDelete} className={formsStyle.deleteBtnWrapper}>
+              <Button color={"red"} text={"Delete"}></Button>
+            </div>
 
             <Link to="/">
               <Button color={"black"} text={"Cancel"}></Button>

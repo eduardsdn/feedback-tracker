@@ -61,20 +61,12 @@ const AddFeedback = function () {
       <main className={formsStyle.formContainer}>
         <img src={plusIcon} className={formsStyle.decorIcon} alt="" />
         <h1 className={formsStyle.formTitle}>Create New Feedback</h1>
-        <form
-          className={formsStyle.form}
-          action=""
-          onSubmit={handleSubmit(onSubmit)}
-        >
+        <form className={formsStyle.form} action="" onSubmit={handleSubmit(onSubmit)}>
           <div className={formsStyle.inputHolder}>
             <label htmlFor="title">Feedback Title</label>
-            <p className={formsStyle.inputDescription}>
-              Add a short, descriptive headline
-            </p>
+            <p className={formsStyle.inputDescription}>Add a short, descriptive headline</p>
             <input
-              className={`${formsStyle.inputField} ${
-                errors.title ? formsStyle.inputError : ""
-              }`}
+              className={`${formsStyle.inputField} ${errors.title ? formsStyle.inputError : ""}`}
               id="title"
               type="text"
               {...register("title", {
@@ -86,9 +78,7 @@ const AddFeedback = function () {
 
           <div className={`${formsStyle.inputHolder} ${formsStyle.select}`}>
             <label htmlFor="">Category</label>
-            <p className={formsStyle.inputDescription}>
-              Choose a category for your feedback
-            </p>
+            <p className={formsStyle.inputDescription}>Choose a category for your feedback</p>
             <input
               className={`${formsStyle.inputField} ${formsStyle.select}`}
               type="text"
@@ -98,25 +88,15 @@ const AddFeedback = function () {
               {...register("category")}
             />
             {!selectHidden ? (
-              <DropdownMenu
-                mountedOn={"form"}
-                options={categories}
-                selectOption={selectOption}
-                selectedOption={selectedOption}
-              />
+              <DropdownMenu mountedOn={"form"} options={categories} selectOption={selectOption} selectedOption={selectedOption} />
             ) : null}
           </div>
 
           <div className={formsStyle.inputHolder}>
             <label htmlFor="">Feedback Detail</label>
-            <p className={formsStyle.inputDescription}>
-              Include any specific comments on what should be improved, added,
-              etc.
-            </p>
+            <p className={formsStyle.inputDescription}>Include any specific comments on what should be improved, added, etc.</p>
             <textarea
-              className={`${formsStyle.inputField} ${
-                errors.detail ? formsStyle.inputError : ""
-              }`}
+              className={`${formsStyle.inputField} ${errors.detail ? formsStyle.inputError : ""}`}
               {...register("description", {
                 required: { value: true, message: "Can't be empty" },
               })}
@@ -129,11 +109,7 @@ const AddFeedback = function () {
               <Button color={"black"} text={"Cancel"}></Button>
             </Link>
 
-            <Button
-              color={"purple"}
-              text={"Add Feedback"}
-              type="submit"
-            ></Button>
+            <Button color={"purple"} text={"Add Feedback"} type="submit"></Button>
           </div>
         </form>
       </main>

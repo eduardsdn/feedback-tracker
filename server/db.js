@@ -20,6 +20,13 @@ const addFeedback = async function (feedback) {
     .insertOne(feedback, { writeConcern: { w: 0 } });
 };
 
+const deleteFeedback = async function (feedbackID) {
+  client
+    .db("FeedbackTracker")
+    .collection("Feedbacks")
+    .deleteOne({ id: feedbackID }, { writeConcern: { w: 0 } });
+};
+
 const getSortedFeedbacksByCategory = async function (category, sortBy) {
   let find = {}; // = all by default
   console.log(sortBy);
@@ -43,12 +50,7 @@ const getSortedFeedbacksByCategory = async function (category, sortBy) {
 
   async function sortByUpvotes(order) {
     //query DB sort by upvotes
-    const feedbacks = await client
-      .db("FeedbackTracker")
-      .collection("Feedbacks")
-      .find(find)
-      .sort({ upvotes: order })
-      .toArray();
+    const feedbacks = await client.db("FeedbackTracker").collection("Feedbacks").find(find).sort({ upvotes: order }).toArray();
     return feedbacks;
   }
 
@@ -78,4 +80,4 @@ const getSortedFeedbacksByCategory = async function (category, sortBy) {
   }
 };
 
-export { getSortedFeedbacksByCategory, addFeedback };
+export { getSortedFeedbacksByCategory, addFeedback, deleteFeedback };
