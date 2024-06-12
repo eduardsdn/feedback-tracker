@@ -17,6 +17,7 @@ const EditFeedback = function () {
   const location = useLocation();
 
   const feedbackData = location.state; //get feedback data from feedbackDetail
+  // console.table(feedbackData);
 
   const { register, handleSubmit, formState } = useForm({
     //set up React Hook Form with default values of a targeted feedback
@@ -54,12 +55,13 @@ const EditFeedback = function () {
     setSelectedStatusOption(option);
   }
 
+  const feedbackID = feedbackData.id;
+
   function onSubmit(formData) {
     // SUBMIT
-    console.table(formData);
+    console.log(formData);
+    axios.put(`http://localhost:5006/api/feedbacks/editFeedback`, { feedbackID, ...formData });
   }
-
-  const feedbackID = feedbackData.id;
 
   function handleDelete(event) {
     event.preventDefault();
@@ -78,7 +80,7 @@ const EditFeedback = function () {
       <main className={formsStyle.formContainer}>
         <img src={penIcon} className={formsStyle.decorIcon} alt="" />
         <h1 className={formsStyle.formTitle}>Edit Feedback</h1>
-        <form className={formsStyle.form} action="" onSubmit={() => handleSubmit(onSubmit)}>
+        <form className={formsStyle.form} action="" onSubmit={handleSubmit(onSubmit)}>
           <div className={formsStyle.inputHolder}>
             <label htmlFor="title">Feedback Title</label>
             <p className={formsStyle.inputDescription}>Add a short, descriptive headline</p>

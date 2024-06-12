@@ -27,6 +27,24 @@ const deleteFeedback = async function (feedbackID) {
     .deleteOne({ id: feedbackID }, { writeConcern: { w: 0 } });
 };
 
+const editFeedback = async function (feedbackID, feedbackData) {
+  const filter = { id: feedbackID };
+
+  const updateDocument = {
+    $set: {
+      title: feedbackData.title,
+      category: feedbackData.category.toLowerCase(),
+      status: feedbackData.status.toLowerCase(),
+      description: feedbackData.description,
+    },
+  };
+
+  await client
+    .db("FeedbackTracker")
+    .collection("Feedbacks")
+    .updateOne(filter, updateDocument, { writeConcern: { w: 0 } });
+};
+
 const getSortedFeedbacksByCategory = async function (category, sortBy) {
   let find = {}; // = all by default
   console.log(sortBy);
@@ -80,4 +98,4 @@ const getSortedFeedbacksByCategory = async function (category, sortBy) {
   }
 };
 
-export { getSortedFeedbacksByCategory, addFeedback, deleteFeedback };
+export { getSortedFeedbacksByCategory, addFeedback, deleteFeedback, editFeedback };
