@@ -2,7 +2,7 @@
 
 .feedbackDetail {
   padding-top: 100px;
-  width: 100%;
+  max-width: 730px;
   //   display: flex;
   //   flex-direction: column;
   .topButtons {
@@ -19,5 +19,24 @@
   }
 
   .comments {
+    border-radius: 10px;
+    margin-top: 24px;
+    background-color: $white;
+    padding: 24px 32px 48px 32px;
+
+    .commentsIndicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      .commentsTitle,
+      .numOfComments {
+        color: $black;
+        font-size: 18px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+    }
   }
 }

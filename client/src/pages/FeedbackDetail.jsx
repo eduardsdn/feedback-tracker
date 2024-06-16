@@ -4,12 +4,13 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 import GoBackBtn from "../components/buttons/GoBackBtn";
 import Button from "../components/buttons/Button";
 import SuggestionCard from "../components/shared/SuggestionCard";
+import Comment from "../components/feedbackDetail/Comment";
 
 const FeedbackDetail = function () {
   const location = useLocation();
   const navigate = useNavigate();
 
-  console.log(location.state);
+  console.log(location.state.comments);
   const feedbackInfo = location.state;
 
   const handleNavigate = function () {
@@ -30,9 +31,14 @@ const FeedbackDetail = function () {
       </div>
       <div className={feedbackDetailStyle.cardHolder}>
         <SuggestionCard {...feedbackInfo} />
+        <section className={feedbackDetailStyle.comments}>
+          <div className={feedbackDetailStyle.commentsIndicator}>
+            <span className={feedbackDetailStyle.numOfComments}>4</span>
+            <h2 className={feedbackDetailStyle.commentsTitle}>Comments</h2>
+          </div>
+          <Comment comment={feedbackInfo.comments[0]} />
+        </section>
       </div>
-
-      <section className={feedbackDetailStyle.comments}></section>
     </div>
   );
 };

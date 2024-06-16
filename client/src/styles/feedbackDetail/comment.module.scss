@@ -1,0 +1,51 @@
+@import "../variables";
+
+.comment {
+  margin-top: 28px;
+  display: flex;
+  gap: 32px;
+  border-bottom: 1px solid $grayLight;
+  padding-bottom: 32px;
+  .profilePic {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    .topContent {
+      display: flex;
+      justify-content: space-between;
+      .userNameHolder {
+        .userRealName {
+          color: $black;
+          font-size: 14px;
+          font-weight: 700;
+        }
+
+        .userNickName {
+          font-size: 14px;
+          color: $gray;
+        }
+      }
+
+      .replyBtn {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        color: $blue;
+        font-size: 13px;
+        font-weight: 700px;
+      }
+    }
+
+    .text {
+      margin-top: 17px;
+      font-size: 15px;
+      color: $gray;
+    }
+  }
+}
