@@ -5,6 +5,7 @@ import GoBackBtn from "../components/buttons/GoBackBtn";
 import Button from "../components/buttons/Button";
 import SuggestionCard from "../components/shared/SuggestionCard";
 import Comment from "../components/feedbackDetail/Comment";
+import AddComment from "../components/feedbackDetail/AddComment";
 
 const FeedbackDetail = function () {
   const location = useLocation();
@@ -48,6 +49,8 @@ const FeedbackDetail = function () {
           ))}
           {/* <Comment comment={feedbackInfo.comments} /> */}
         </section>
+
+        <AddComment />
       </div>
     </div>
   );

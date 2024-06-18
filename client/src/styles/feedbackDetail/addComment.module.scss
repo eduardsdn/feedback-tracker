@@ -1,0 +1,54 @@
+@import "../variables";
+
+.addComment {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  padding: 24px 32px 32px 32px;
+  background-color: $white;
+  border-radius: 10px;
+
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+    color: $black;
+  }
+
+  form {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    .input {
+      width: 100%;
+      font-family: inherit;
+      height: 96px;
+      resize: none;
+      padding: 12px 24px 12px 24px;
+      border-radius: 5px;
+      font-weight: 400;
+      font-size: 15px;
+      border: none;
+      background-color: $whiteDirty;
+    }
+
+    .inputError {
+      width: 100%;
+      font-family: inherit;
+      height: 96px;
+      resize: none;
+      padding: 12px 24px 12px 24px;
+      border-radius: 5px;
+      font-weight: 400;
+      font-size: 15px;
+      background-color: $whiteDirty;
+      border: solid 1px;
+      border-color: $red;
+      outline-color: $red;
+    }
+
+    .btnHolder {
+      margin-top: 16px;
+      align-self: flex-end;
+    }
+  }
+}

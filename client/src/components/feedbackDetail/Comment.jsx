@@ -20,9 +20,9 @@ const Comment = function ({ commentID, imageFileName, commentText, userRealName,
         <div className={commentStyle.topContent}>
           <div className={commentStyle.userNameHolder}>
             <p className={commentStyle.userRealName}>{userRealName}</p>
-            <p className={commentStyle.userNickName}>{userNickName}</p>
+            <p className={commentStyle.userNickName}>{"@" + userNickName}</p>
           </div>
-          <button className={commentStyle.replyBtn}>Reply</button>
+          {/* <button className={commentStyle.replyBtn}>Reply</button> */}
         </div>
         <p className={commentStyle.text}>{commentText}</p>
       </div>
