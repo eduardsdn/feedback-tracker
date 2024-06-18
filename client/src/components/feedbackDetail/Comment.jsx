@@ -1,16 +1,21 @@
 import React from "react";
 import commentStyle from "../../styles/feedbackDetail/comment.module.scss";
-import profilePicture from "../../assets/user-images/image-anne.jpg";
+import profileDefaultPicture from "../../assets/user-images/default.png";
 
-const Comment = function ({ comment }) {
-  console.log(comment);
-  const commentText = comment.content;
-  const userRealName = comment.user.name;
-  const userNickName = comment.user.username;
+const Comment = function ({ commentID, imageFileName, commentText, userRealName, userNickName }) {
+  console.log(commentText);
+  console.log(imageFileName);
+  let imgSrc;
+  try {
+    imgSrc = require(`../../assets/user-images/${imageFileName}`);
+  } catch {
+    console.error("Could not load profile picture from comment ID", commentID);
+    imgSrc = profileDefaultPicture;
+  }
 
   return (
     <div className={commentStyle.comment}>
-      <img className={commentStyle.profilePic} src={profilePicture} alt="" />
+      <img className={commentStyle.profilePic} src={imgSrc} alt="" />
       <div className={commentStyle.content}>
         <div className={commentStyle.topContent}>
           <div className={commentStyle.userNameHolder}>

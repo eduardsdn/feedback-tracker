@@ -12,7 +12,8 @@ const FeedbackDetail = function () {
 
   console.log(location.state.comments);
   const feedbackInfo = location.state;
-
+  const comments = feedbackInfo.comments;
+  const numOfComments = feedbackInfo.comments.length;
   const handleNavigate = function () {
     navigate("/editfeedback", { state: { ...feedbackInfo } });
   };
@@ -33,10 +34,19 @@ const FeedbackDetail = function () {
         <SuggestionCard {...feedbackInfo} />
         <section className={feedbackDetailStyle.comments}>
           <div className={feedbackDetailStyle.commentsIndicator}>
-            <span className={feedbackDetailStyle.numOfComments}>4</span>
+            <span className={feedbackDetailStyle.numOfComments}>{numOfComments}</span>
             <h2 className={feedbackDetailStyle.commentsTitle}>Comments</h2>
           </div>
-          <Comment comment={feedbackInfo.comments[0]} />
+          {comments.map((comment) => (
+            <Comment
+              commentID={comment.id}
+              imageFileName={comment.user.image}
+              commentText={comment.content}
+              userRealName={comment.user.name}
+              userNickName={comment.user.username}
+            />
+          ))}
+          {/* <Comment comment={feedbackInfo.comments} /> */}
         </section>
       </div>
     </div>
