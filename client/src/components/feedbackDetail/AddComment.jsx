@@ -10,6 +10,7 @@ const AddComment = function ({ commentID }) {
   const { register, handleSubmit, formState } = useForm();
   const { errors } = formState;
 
+  // TODO: put request here
   function onSubmit(formData) {
     console.log("submitted");
   }

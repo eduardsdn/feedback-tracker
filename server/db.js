@@ -14,7 +14,7 @@ try {
 
 const addFeedback = async function (feedback) {
   console.log(feedback);
-  client
+  await client
     .db("FeedbackTracker")
     .collection("Feedbacks")
     .insertOne(feedback, { writeConcern: { w: 0 } });
@@ -38,6 +38,25 @@ const editFeedback = async function (feedbackID, feedbackData) {
       description: feedbackData.description,
     },
   };
+
+  await client
+    .db("FeedbackTracker")
+    .collection("Feedbacks")
+    .updateOne(filter, updateDocument, { writeConcern: { w: 0 } });
+};
+
+const addUpvote = async function (feedbackID, numOfUpvotes) {
+  // console.log(feedbackID);
+  const filter = { id: feedbackID };
+  const updatedValue = numOfUpvotes + 1
+
+  const updateDocument = {
+    $set: {
+      upvotes: updatedValue
+    },
+  }
+
+  console.log(feedbackID, updateDocument)
 
   await client
     .db("FeedbackTracker")
@@ -98,4 +117,4 @@ const getSortedFeedbacksByCategory = async function (category, sortBy) {
   }
 };
 
-export { getSortedFeedbacksByCategory, addFeedback, deleteFeedback, editFeedback };
+export { getSortedFeedbacksByCategory, addFeedback, deleteFeedback, editFeedback, addUpvote };

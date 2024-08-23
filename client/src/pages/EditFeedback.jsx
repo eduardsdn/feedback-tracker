@@ -12,8 +12,7 @@ import penIcon from "../assets/shared/icon-edit-feedback.svg";
 
 const EditFeedback = function () {
   // For this form I make use of react hook form with default values that come from the useLocation()
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const location = useLocation();
 
   const feedbackData = location.state; //get feedback data from feedbackDetail

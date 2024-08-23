@@ -5,14 +5,7 @@ import Category from "./Category";
 import CommentCounter from "./CommentCounter";
 import suggestionCardStyle from "../../styles/suggestions/suggestionCard.module.scss";
 
-const SuggestionCard = function ({
-  id,
-  title,
-  description,
-  category,
-  upvotes,
-  comments,
-}) {
+const SuggestionCard = function ({ id, title, description, category, upvotes, comments }) {
   function getNumOfComments(comments) {
     let numOfComments;
     if (comments !== undefined) {
@@ -48,7 +41,7 @@ const SuggestionCard = function ({
     >
       <div className={suggestionCardStyle.left}>
         <div className={suggestionCardStyle.upvote}>
-          <Upvote upvotes={upvotes}></Upvote>
+          <Upvote feedbackID={id} upvotes={upvotes}></Upvote>
           {/* render upvote component passing number of upvotes */}
         </div>
         <div className={suggestionCardStyle.textContent}>

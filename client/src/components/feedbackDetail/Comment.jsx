@@ -1,6 +1,7 @@
 import React from "react";
 import commentStyle from "../../styles/feedbackDetail/comment.module.scss";
 import profileDefaultPicture from "../../assets/user-images/default.png";
+import { useDispatch } from "react-redux";
 
 const Comment = function ({ commentID, imageFileName, commentText, userRealName, userNickName }) {
   console.log(commentText);

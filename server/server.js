@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { getSortedFeedbacksByCategory, addFeedback, deleteFeedback, editFeedback } from "./db.js";
+import { getSortedFeedbacksByCategory, addFeedback, deleteFeedback, editFeedback, addUpvote } from "./db.js";
 
 const app = express();
 dotenv.config();
@@ -20,12 +20,12 @@ app.post("/api/feedbacks/addFeedback", (req, res) => {
   addFeedback(feedback);
 });
 
-app.delete("/api/feedbacks/deleteFeedback/:feedbackID", (req, res) => {
+app.delete("/api/feedbacks/deleteFeedback/:feedbackID", async (req, res) => {
   // const feedbackID = req.body;
 
   const feedbackID = req.params.feedbackID;
 
-  deleteFeedback(feedbackID);
+  await deleteFeedback(feedbackID);
   res.status(200).json(`Complete, deleted ${feedbackID}`);
 });
 
@@ -37,6 +37,13 @@ app.put("/api/feedbacks/editFeedback", (req, res) => {
 
   editFeedback(feedbackID, feedbackData);
   res.status(200).json("Complete");
+});
+
+app.put("/api/feedbacks/addUpvote/", async (req, res) => {
+  const { feedbackID } = req.body
+  const { upvotes } = req.body
+  await addUpvote(feedbackID, upvotes).then(res.status(200).json("Complete"))
+  
 });
 
 const PORT = process.env.PORT || 5001;
